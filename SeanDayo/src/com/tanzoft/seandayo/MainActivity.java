@@ -44,6 +44,17 @@ public class MainActivity extends Activity {
 			}
 		});
 		
+		contacts.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent openCredits = new Intent("com.tanzoft.SeanDayo.SUBCONTACTS");
+				startActivity(openCredits);
+				
+			}
+		});
+		
 		//call credits activity when button_credit is clicked
 		credits.setOnClickListener(new View.OnClickListener() {
 			
