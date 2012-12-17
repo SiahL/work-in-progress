@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 	
+	//Declare buttons
 	Button about;
 	Button photography;
 	Button contacts;
@@ -20,12 +21,15 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		
+		//Initialize Buttons
 		about = (Button)findViewById(R.id.about);
 		photography = (Button)findViewById(R.id.photography);
 		contacts = (Button)findViewById(R.id.contact);
 		credits = (Button)findViewById(R.id.credits);
 		wearables = (Button)findViewById(R.id.wearable);
 		
+		//set actions for every button click
 		about.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -44,6 +48,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		
+		//open subContacts when contacts button is clicked
 		contacts.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -72,6 +77,7 @@ public class MainActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
+
 		return true;
 	}
 
