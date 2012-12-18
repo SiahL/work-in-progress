@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,6 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 //I was going for a simple_list_item_1 menu until I found this from the web, much better than item_1 menu
 
@@ -112,6 +112,7 @@ public class SubContacts extends ListActivity {
 		// Retrieve the item that was clicked on
 		Adapter myList = getListAdapter();
 
+		@SuppressWarnings("unused")
 		Object item = myList.getItem(info.position);
 	}
 
@@ -121,6 +122,7 @@ public class SubContacts extends ListActivity {
 		// Here's how you can get the correct item in onContextItemSelected()
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
 				.getMenuInfo();
+		@SuppressWarnings("unused")
 		Object myItem = getListAdapter().getItem(info.position);
 
 		switch (item.getItemId()) {
@@ -170,6 +172,14 @@ public class SubContacts extends ListActivity {
 		l.showContextMenuForChild(v);
 		// getMenuInflater().inflate(R.menu.contacts_menu, menu);
 
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_main, menu);
+
+		return true;
 	}
 
 }
