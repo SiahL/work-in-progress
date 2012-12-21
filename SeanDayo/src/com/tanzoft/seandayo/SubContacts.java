@@ -7,11 +7,11 @@ import org.apache.http.protocol.HTTP;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +20,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //I was going for a simple_list_item_1 menu until I found this from the web, much better than item_1 menu
 
@@ -30,6 +31,8 @@ public class SubContacts extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
+		Toast.makeText(this, "Touch on person to see contact options", Toast.LENGTH_LONG).show();
 
 		// Note - we're specifying android.R.id.text1 as a param, but it's
 		// ignored
@@ -40,19 +43,19 @@ public class SubContacts extends ListActivity {
 		// we wouldn't need that param.
 
 		peopleContacts.add(new String[] { "Christopher Shayo",
-				"Chief Executive Officer", "+255786157782",
+				"Co-Founder, CEO", "+255786157782",
 				"mixtapeshantall@yahoo.com", "https://twitter.com/cSeandayo" });
-		peopleContacts.add(new String[] { "Steven Kilele", "Marketing Manager",
-				"+255714002823", "skilele@gmail.com",
+		peopleContacts.add(new String[] { "Steven Kilele", "Co-Founder",
+				"+255714002823", "stevenkilele92@yahoo.com",
 				"https://www.facebook.com/steven.kilele" });
-		peopleContacts.add(new String[] { "Philip Kinasha", "Media Consultant",
+		peopleContacts.add(new String[] { "Philip Kinasha", "Consultant",
 				"+16073199112", "pkinasha@gmail.com",
 				"https://plus.google.com/100250468248307344507/about" });
-		peopleContacts
-				.add(new String[] { "Dennis Mkony", "Promotions",
-						"+255717369336", "mkony360@yahoo.com",
-						"https://www.google.com" });
-		peopleContacts.add(new String[] { "Simeon Mugisha", "Customer Care",
+		// peopleContacts
+		// .add(new String[] { "Dennis Mkony", "Promotions",
+		// "+255717369336", "mkony360@yahoo.com",
+		// "https://www.google.com" });
+		peopleContacts.add(new String[] { "Simeon Mugisha", "Consultant",
 				"+60162689443", "cmeo226@yahoo.com",
 				"https://plus.google.com/u/0/106366345061442881202/about" });
 		peopleContacts.add(new String[] { "Damas Mlabwa", "Software Developer",
@@ -74,8 +77,10 @@ public class SubContacts extends ListActivity {
 				String[] entry = peopleContacts.get(position);
 				TextView text1 = (TextView) view
 						.findViewById(android.R.id.text1);
+				text1.setTextColor(Color.WHITE);
 				TextView text2 = (TextView) view
 						.findViewById(android.R.id.text2);
+				text2.setTextColor(Color.WHITE);
 				text1.setText(entry[0]);
 				text2.setText(entry[1]);
 				return view;
@@ -85,6 +90,8 @@ public class SubContacts extends ListActivity {
 		});
 
 		registerForContextMenu(getListView());
+		
+		getListView().setBackgroundResource(R.drawable.bg_e);
 
 	}
 
@@ -98,7 +105,7 @@ public class SubContacts extends ListActivity {
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
-		menu.setHeaderTitle("Wasiliana na mimi kwa:");
+		menu.setHeaderTitle("Contact me:");
 
 		// Get the info on which item was selected
 		getMenuInflater().inflate(R.menu.contacts_menu, menu);
@@ -175,9 +182,27 @@ public class SubContacts extends ListActivity {
 	}
 	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.credits:
+			Toast.makeText(
+					this,
+					"Developed by:\nDamas Mlabwa\nPhilip Kinasha\nSimeon Mugisha",
+					Toast.LENGTH_LONG).show();
+			break;
+		case R.id.about:
+
+			break;
+
+		case R.id.help:
+			break;
+		case R.id.rate:
+
+			break;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 
 		return true;
 	}

@@ -18,7 +18,7 @@ public class SplashActivity extends Activity{
 			public void run(){
 				try{
 					//Pause splash screen for 5 seconds, then load main activity
-					sleep(5000);
+					sleep(3200);
 				}catch(InterruptedException e){
 					e.printStackTrace();
 				}finally{

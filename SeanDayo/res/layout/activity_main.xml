@@ -11,7 +11,7 @@
 
     <Button
         android:id="@+id/about"
-        android:textColor="#d5d42c"
+        android:textColor="#38C0F4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/photography"
@@ -20,7 +20,7 @@
 
     <Button
         android:id="@+id/photography"
-        android:textColor="#d5d42c"
+        android:textColor="#38C0F4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/about"
@@ -29,7 +29,7 @@
 
     <Button
         android:id="@+id/wearable"
-        android:textColor="#d5d42c"
+        android:textColor="#38C0F4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/photography"       
@@ -37,7 +37,7 @@
 
     <Button
         android:id="@+id/contact"
-        android:textColor="#d5d42c"
+        android:textColor="#38C0F4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/about"
