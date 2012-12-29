@@ -14,10 +14,10 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
 	// Declare buttons
-	Button about;
-	Button photography;
+	Button facebookAbout;
+	Button twitterAbout;
 	Button contacts;
-	Button wearables;
+	Button gallery;
 	WebView abtweb;
 
 	@Override
@@ -26,14 +26,14 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		// Initialize Buttons
-		about = (Button) findViewById(R.id.about);
-		photography = (Button) findViewById(R.id.photography);
+		facebookAbout = (Button) findViewById(R.id.abtFacebook);
+		twitterAbout = (Button) findViewById(R.id.abtTwitter);
 		contacts = (Button) findViewById(R.id.contact);
-		wearables = (Button) findViewById(R.id.wearable);
+		gallery = (Button) findViewById(R.id.gallery);
 		abtweb = (WebView) findViewById(R.id.web1);
 
 		// set actions for every button click
-		about.setOnClickListener(new View.OnClickListener() {
+		facebookAbout.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -51,14 +51,20 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		photography.setOnClickListener(new View.OnClickListener() {
+		twitterAbout.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-
-				Intent photo = new Intent("com.tanzoft.SeanDayo.COMINGSOON");
-				startActivity(photo);
+				try {
+					Class<?> web = Class
+							.forName("com.tanzoft.seandayo.AboutActivityTwitter");
+					Intent abt = new Intent(MainActivity.this, web);
+					startActivity(abt);
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
 			}
 		});
@@ -76,12 +82,13 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		wearables.setOnClickListener(new View.OnClickListener() {
+		gallery.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent wear = new Intent("com.tanzoft.SeanDayo.COMINGSOON");
+				Intent wear = new Intent(
+						"com.tanzoft.SeanDayo.IMAGEGRIDACTIVITY");
 				startActivity(wear);
 			}
 		});

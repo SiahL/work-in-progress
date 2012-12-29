@@ -8,40 +8,40 @@
     android:background="@drawable/mainbg"
     tools:context=".MainActivity" >
 
-
     <Button
-        android:id="@+id/about"
-        android:textColor="#38C0F4"
+        android:id="@+id/abtFacebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/photography"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/button_about" />
-
-    <Button
-        android:id="@+id/photography"
-        android:textColor="#38C0F4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/about"
-        android:layout_alignLeft="@+id/wearable"
-        android:text="@string/button_photo" />
-
-    <Button
-        android:id="@+id/wearable"
-        android:textColor="#38C0F4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/photography"       
-        android:text="@string/button_prod" />
+        android:text="@string/button_about"
+        android:textColor="#38C0F4" />
 
     <Button
         android:id="@+id/contact"
-        android:textColor="#38C0F4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/about"
-        android:layout_below="@+id/about"      
-        android:text="@string/button_contact" />
+        android:layout_alignLeft="@+id/abtTwitter"
+        android:layout_below="@+id/abtTwitter"
+        android:text="@string/button_contact"
+        android:textColor="#38C0F4" />
+
+    <Button
+        android:id="@+id/gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/abtFacebook"
+        android:layout_alignLeft="@+id/abtFacebook"
+        android:text="@string/button_photo"
+        android:textColor="#38C0F4" />
+
+    <Button
+        android:id="@+id/abtTwitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/abtFacebook"
+        android:layout_below="@+id/abtFacebook"
+        android:text="@string/button_prod"
+        android:textColor="#38C0F4" />
 
 </RelativeLayout>

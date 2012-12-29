@@ -17,5 +17,8 @@
     <item
         android:id="@+id/rate"
         android:title="Rate this app"/>
-
+    
+    <item 
+        android:id="@+id/about"
+        android:title="About App"/>
 </menu>

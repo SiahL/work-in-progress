@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Default" parent="@android:style/Theme.Holo"></style>
+    
+    <style name="Theme.Default" parent="@android:style/Theme.Holo">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:actionBarStyle">@style/TranslucentDarkActionBar</item>
+    </style>
 
     <style name="Theme.NoTitle" parent="@android:style/Theme.Holo.NoActionBar"></style>
 
