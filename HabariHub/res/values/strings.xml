@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HabariHub</string>
+    <string name="menu_settings">Settings</string>
+    <string name="button_blogs">Blogs</string>
+    <string name="button_radio">Radio</string>
+    <string name="button_newspapers">Newspapers</string>
+    <string name="button_about">About Habari Hub</string>
+    <string name="button_social">Social Media</string>
+    <string name="button_followme">Circle Me on Google+</string>
+    <string name="button_github">OpenSource at Github</string>
+    <string name="button_paypal">Suport development at PayPal</string>
+    <string name="about_title">Habari Hub</string>
+    <string name="about_donations">PayPal donations do not grant any upgrade or improvements, they just support developer work. App will remain free without donations</string>
+    <string name="about_text">Havari Hub is a lightweight app created to integrate all Tanzania news sources into one hub. It is meant to be lightweight and fast to meet the need of low bandwidth in our developing nation. Any contribution is welcomed through the following channels</string>
+    <string name="main_test">Thank you for being part of this app, as of now this app is in early development stages. Timeline for this app is as follows:\n1st February 2013 \- Alpha Release\n1st March 2013 \- Beta Release\n1st April 2013 \- Final Release.\nAlmost everything right now is in webView but we are working hard to bring everything native.</string>
+
+</resources>
