@@ -31,8 +31,9 @@ public class SubContacts extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
-		Toast.makeText(this, "Touch on person to see contact options", Toast.LENGTH_LONG).show();
+
+		Toast.makeText(this, "Touch on person to see contact options",
+				Toast.LENGTH_LONG).show();
 
 		// Note - we're specifying android.R.id.text1 as a param, but it's
 		// ignored
@@ -89,8 +90,9 @@ public class SubContacts extends ListActivity {
 
 		});
 
+		//register context View
 		registerForContextMenu(getListView());
-		
+
 		getListView().setBackgroundResource(R.drawable.bg_e);
 
 	}
@@ -180,7 +182,7 @@ public class SubContacts extends ListActivity {
 		// getMenuInflater().inflate(R.menu.contacts_menu, menu);
 
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
