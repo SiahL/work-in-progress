@@ -11,7 +11,7 @@
         android:background="@drawable/titlebarimage"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:text="Habari Hub Radio" />
+        android:text="@string/radio_title" />
 
     <ImageView
         android:id="@+id/imageView1"
@@ -31,7 +31,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textColor="@android:color/white"
-            android:text="Karibu" />
+            android:text="@string/radio_greeting" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -41,6 +41,7 @@
         android:layout_weight="0.94" >
 
         <ImageButton
+            android:contentDescription="Pause Radio"
             android:id="@+id/pausebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,6 +51,7 @@
             android:src="@drawable/radiopauseicon" />
 
         <ImageButton
+            android:contentDescription="Play Radio"
             android:id="@+id/playbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

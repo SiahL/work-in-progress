@@ -19,6 +19,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		//sections of the app, all list views except radio
 		blogs = (Button)findViewById(R.id.blogs);
 		magazeti=(Button)findViewById(R.id.magazeti);
 		radio=(Button)findViewById(R.id.radio);
