@@ -14,6 +14,7 @@ public class MainActivity extends Activity {
 	Button radio;
 	Button about;
 	Button social;
+	Button videos;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,6 +26,7 @@ public class MainActivity extends Activity {
 		radio=(Button)findViewById(R.id.radio);
 		about=(Button)findViewById(R.id.about);
 		social=(Button)findViewById(R.id.social);
+		videos=(Button)findViewById(R.id.videos);
 		
 		about.setOnClickListener(new View.OnClickListener() {
 			
@@ -66,6 +68,26 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+		
+		videos.setOnClickListener(new View.OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                Intent video = new Intent(MainActivity.this, VideosActivity.class);
+                startActivity(video);
+                
+            }
+        });
+		
+		social.setOnClickListener(new View.OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                Intent social = new Intent(MainActivity.this, SocialActivity.class);
+                startActivity(social);
+                
+            }
+        });
 	}
 
 	@Override

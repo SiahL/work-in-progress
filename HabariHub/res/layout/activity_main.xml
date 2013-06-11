@@ -37,6 +37,13 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/button_social" />
+            
+            <Button
+                android:id="@+id/videos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_videos" />
+            
             <Button
                 android:id="@+id/about"
                 android:layout_width="fill_parent"

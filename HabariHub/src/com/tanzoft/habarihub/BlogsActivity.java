@@ -10,9 +10,8 @@ import android.widget.ListView;
 
 public class BlogsActivity extends ListActivity {
 
-    String[] blogsList = { "Michuzi Blog", "Candle Heart", "BongoFlava TZ",
-            "MillardAyo", "John Kitime Blog", "King Kapita", "Fununu Blog",
-            "Gospel Kitaa", "Shaffih Dauda" };
+    String[] blogsList = { "Michuzi Blog", "MillardAyo", "John Kitime Blog",
+            "King Kapita", "Fununu Blog", "Gospel Kitaa" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,25 +30,49 @@ public class BlogsActivity extends ListActivity {
 
         switch (position) {
         case 0:
-            blogSite = "http://www.issamichuzi.blogspot.com";
+            blogSite = "http://www.issamichuzi.blogspot.com/feeds/posts/default?alt=rss";
             loadBlog = new Intent(BlogsActivity.this,
-                    com.tanzoft.habarihub.WebActivity.class);
+                    com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+            loadBlog.putExtra("site", blogSite);
+            startActivity(loadBlog);
+            break;
+
+        case 1:
+            blogSite = "http://www.millardayo.com/feed";
+            loadBlog = new Intent(BlogsActivity.this,
+                    com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+            loadBlog.putExtra("site", blogSite);
+            startActivity(loadBlog);
+            break;
+
+        case 2:
+            blogSite = "http://www.chekanakitime.blogspot.com/feeds/posts/default?alt=rss";
+            loadBlog = new Intent(BlogsActivity.this,
+                    com.tanzoft.habarihub.rss_activities.SplashActivity.class);
             loadBlog.putExtra("site", blogSite);
             startActivity(loadBlog);
             break;
 
         case 3:
-            blogSite = "http://www.millardayo.com";
+            blogSite = "http://www.kingkapita.blogspot.com/feeds/posts/default?alt=rss";
             loadBlog = new Intent(BlogsActivity.this,
-                    com.tanzoft.habarihub.WebActivity.class);
+                    com.tanzoft.habarihub.rss_activities.SplashActivity.class);
             loadBlog.putExtra("site", blogSite);
             startActivity(loadBlog);
             break;
-            
-        case 8:
-            blogSite = "http://www.shaffihdauda.com";
+
+        case 4:
+            blogSite = "http://www.fununuhabarii.blogspot.com/feeds/posts/default?alt=rss";
             loadBlog = new Intent(BlogsActivity.this,
-                    com.tanzoft.habarihub.WebActivity.class);
+                    com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+            loadBlog.putExtra("site", blogSite);
+            startActivity(loadBlog);
+            break;
+
+        case 5:
+            blogSite = "http://www.gospelkitaa.blogspot.com/feeds/posts/default?alt=rss";
+            loadBlog = new Intent(BlogsActivity.this,
+                    com.tanzoft.habarihub.rss_activities.SplashActivity.class);
             loadBlog.putExtra("site", blogSite);
             startActivity(loadBlog);
             break;
