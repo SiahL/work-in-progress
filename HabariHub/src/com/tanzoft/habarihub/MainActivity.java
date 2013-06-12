@@ -2,12 +2,15 @@ package com.tanzoft.habarihub;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.fima.cardsui.views.CardUI;
 import com.tanzoft.habarihub.ui.MyPlayCard;
+
 
 public class MainActivity extends Activity {
 
@@ -21,6 +24,7 @@ public class MainActivity extends Activity {
         mCardView = (CardUI) findViewById(R.id.cardsview);
         mCardView.setSwipeable(false);
 
+        //Create a blogs card
         MyPlayCard blogs = new MyPlayCard("Blogs and Sites",
                 "Your gateway to latest news from TZ finest", "#e00707",
                 "#e00707", false, false);
@@ -37,6 +41,8 @@ public class MainActivity extends Activity {
         });
         mCardView.addCard(blogs);
 
+        
+        //create a newspapers card
         MyPlayCard newspapers = new MyPlayCard("Newspapers",
                 "Preview latest headlines.", "#e00707", "#e00707", false, false);
 
@@ -52,6 +58,7 @@ public class MainActivity extends Activity {
         });
         mCardView.addCard(newspapers);
 
+        //create radios card
         MyPlayCard radios = new MyPlayCard("Radio", "Radio on the go!!",
                 "#e00707", "#33B5E5", false, false);
 
@@ -67,6 +74,7 @@ public class MainActivity extends Activity {
         });
         mCardView.addCard(radios);
 
+        //create videos card
         MyPlayCard videos = new MyPlayCard("Videos", "TZ Videos on youtube",
                 "#e00707", "#33B5E5", false, false);
 
@@ -82,6 +90,7 @@ public class MainActivity extends Activity {
         });
         mCardView.addCard(videos);
 
+        //create about card
         MyPlayCard about = new MyPlayCard("About Us", "Know Us. Meet Us.",
                 "#e00707", "#e00707", false, false);
 
@@ -97,13 +106,32 @@ public class MainActivity extends Activity {
         });
         mCardView.addCard(about);
 
+        //draw cards
         mCardView.refresh();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_main, menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+    
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+        
+        //rate application
+        case R.id.rate:
+            String myUrl = "https://play.google.com/store/apps/details?id=com.tanzoft.habarihub";
+
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(myUrl)));
+
+            break;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+
         return true;
     }
 

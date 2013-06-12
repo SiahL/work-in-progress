@@ -3,9 +3,13 @@ package com.tanzoft.habarihub;
 import java.util.LinkedList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -16,10 +20,14 @@ public class RadioActivity extends ListActivity {
 
 	final List<String[]> radioList = new LinkedList<String[]>();
 
-	@Override
+	@SuppressLint("NewApi")
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		//radioList.add(new String[] { "Clouds FM", "The People's Station", "" });
 		radioList.add(new String[] { "Choice FM", "The Better Music Mix",
@@ -90,5 +98,29 @@ public class RadioActivity extends ListActivity {
 		playRadio.putExtra("MediaActivity", channel[2]);
 		startActivity(playRadio);
 	}
+	
+	public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+    
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+        case android.R.id.home:
+            // app icon in action bar clicked; finish activity to go home
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //Kill activity when it goes to background
+    public void onPause(){
+        super.onPause();
+        finish();
+    }
+
 
 }

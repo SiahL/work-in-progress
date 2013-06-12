@@ -52,7 +52,7 @@ public final class R {
 		public static final int card = 0x7f020004;
 		public static final int card_background = 0x7f020005;
 		public static final int card_shadow = 0x7f020007;
-		public static final int top_shadow = 0x7f020018;
+		public static final int top_shadow = 0x7f020019;
 	}
 	public static final class dimen {
 		public static final int web_suggestion_icon_size = 0x7f060006;

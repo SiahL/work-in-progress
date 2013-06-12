@@ -1,9 +1,13 @@
 package com.tanzoft.habarihub;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,7 +17,8 @@ public class AboutActivity extends Activity {
 	Button github;
 	Button paypal;
 
-	@Override
+	@SuppressLint("NewApi")
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
@@ -23,6 +28,8 @@ public class AboutActivity extends Activity {
 		github = (Button)findViewById(R.id.button_github);
 		paypal = (Button)findViewById(R.id.button_paypal);
 		
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
 		//open a web browser to developer's google+ page when button is pressed
 		developers.setOnClickListener(new View.OnClickListener() {
 			
@@ -65,5 +72,28 @@ public class AboutActivity extends Activity {
             }
         });
 	}
+	
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+    
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+        case android.R.id.home:
+            // app icon in action bar clicked; finish activity to go home
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+    //kill activity when it goes in the background
+    public void onPause(){
+        super.onPause();
+        finish();
+    }
 
 }

@@ -223,11 +223,12 @@ public final class R {
         public static final int radiopauseicon=0x7f020011;
         public static final int radioplayicon=0x7f020012;
         public static final int radiostopicon=0x7f020013;
-        public static final int selectable_background_cardbank=0x7f020014;
-        public static final int simeon=0x7f020015;
-        public static final int tanzoft=0x7f020016;
-        public static final int titlebarimage=0x7f020017;
-        public static final int top_shadow=0x7f020018;
+        public static final int rate=0x7f020014;
+        public static final int selectable_background_cardbank=0x7f020015;
+        public static final int simeon=0x7f020016;
+        public static final int tanzoft=0x7f020017;
+        public static final int titlebarimage=0x7f020018;
+        public static final int top_shadow=0x7f020019;
     }
     public static final class id {
         public static final int ScrollView1=0x7f0a001d;
@@ -249,6 +250,7 @@ public final class R {
         public static final int linearLayout1=0x7f0a002a;
         public static final int listView=0x7f0a001b;
         public static final int magazeti=0x7f0a000a;
+        public static final int menu_settings=0x7f0a0030;
         public static final int overflow=0x7f0a001a;
         public static final int pager=0x7f0a001f;
         public static final int pausebutton=0x7f0a0012;
@@ -256,9 +258,11 @@ public final class R {
         public static final int playbutton=0x7f0a0013;
         public static final int progressBar=0x7f0a002b;
         public static final int radio=0x7f0a0009;
+        public static final int rate=0x7f0a0032;
         public static final int refresh_option=0x7f0a002e;
         public static final int relativeLayout1=0x7f0a0010;
         public static final int relativeLayout2=0x7f0a0011;
+        public static final int report=0x7f0a0031;
         public static final int scrollView1=0x7f0a0000;
         public static final int share_option=0x7f0a002d;
         public static final int social=0x7f0a000b;
@@ -306,6 +310,7 @@ public final class R {
     public static final class menu {
         public static final int activity_desc=0x7f090000;
         public static final int activity_main=0x7f090001;
+        public static final int main_menu=0x7f090002;
     }
     public static final class string {
         public static final int about_donations=0x7f080018;
