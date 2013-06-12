@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class AboutActivity extends Activity {
 	
-	Button gplus;
+	Button developers;
 	Button github;
 	Button paypal;
 
@@ -19,20 +19,24 @@ public class AboutActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
 		
-		gplus = (Button)findViewById(R.id.button_gplus);
+		developers = (Button)findViewById(R.id.button_developers);
 		github = (Button)findViewById(R.id.button_github);
 		paypal = (Button)findViewById(R.id.button_paypal);
 		
 		//open a web browser to developer's google+ page when button is pressed
-		gplus.setOnClickListener(new View.OnClickListener() {
+		developers.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				//url to developer's google+ page
-				String url = "https://plus.google.com/104081026859969508594/about";
+			/*	String url = "https://plus.google.com/104081026859969508594/about";
 				Intent plus = new Intent(Intent.ACTION_VIEW);
 				plus.setData(Uri.parse(url));
 				startActivity(plus);
+				*/
+			    
+			    Intent dev =new Intent(AboutActivity.this, com.tanzoft.habarihub.Developers.class);
+			    startActivity(dev);
 				
 			}
 		});
@@ -50,6 +54,16 @@ public class AboutActivity extends Activity {
 				
 			}
 		});
+		
+		paypal.setOnClickListener(new View.OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                
+               
+                
+            }
+        });
 	}
 
 }

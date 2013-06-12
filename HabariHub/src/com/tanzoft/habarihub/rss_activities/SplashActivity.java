@@ -84,6 +84,7 @@ public class SplashActivity extends Activity {
 
 	}
 
+	/*
 	private void startLisActivity(RSSFeed feed) {
 
 		Bundle bundle = new Bundle();
@@ -97,7 +98,23 @@ public class SplashActivity extends Activity {
 		// kill this activity
 		finish();
 
-	}
+	} */
+	
+	
+	   private void startLisActivity(RSSFeed feed) {
+
+	        Bundle bundle = new Bundle();
+	        bundle.putSerializable("feed", feed);
+
+	        // launch List activity
+	        Intent intent = new Intent(SplashActivity.this, com.tanzoft.habarihub.ui.CardsUI.class);
+	        intent.putExtras(bundle);
+	        startActivity(intent);
+
+	        // kill this activity
+	        finish();
+
+	    } 
 
 	private class AsyncLoadXMLFeed extends AsyncTask<Void, Void, Void> {
 
@@ -111,7 +128,7 @@ public class SplashActivity extends Activity {
 				WriteFeed(feed);
 			return null;
 
-		}
+		} 
 
 		@Override
 		protected void onPostExecute(Void result) {

@@ -10,7 +10,7 @@ import android.widget.ListView;
 public class MagazetiActivity extends ListActivity {
 
     String[] magazeti = { "Habari Leo",
-            "Mwananchi", "Mtanzania", "Daily News",
+            "Mwananchi", "Mtanzania",
             "Spoti Starehe", "Mwanahalisi", "Raia Mwema", "Daily News" };
 
     @Override
@@ -61,16 +61,7 @@ public class MagazetiActivity extends ListActivity {
             startActivity(load);
             break;
             
-            
         case 4:
-            url = "http://www.spoti.co.tz/index.php?format=feed&type=rss";
-            load = new Intent(MagazetiActivity.this,
-                    com.tanzoft.habarihub.rss_activities.SplashActivity.class);
-            load.putExtra("site", url);
-            startActivity(load);
-            break;
-            
-        case 5:
             url = "http://www.mwanahalisi.co.tz/rss.xml";
             load = new Intent(MagazetiActivity.this,
                     com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -78,7 +69,7 @@ public class MagazetiActivity extends ListActivity {
             startActivity(load);
             break;
             
-        case 6:
+        case 5:
             url = "http://www.raiamwema.co.tz/rss.xml";
             load = new Intent(MagazetiActivity.this,
                     com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -86,7 +77,7 @@ public class MagazetiActivity extends ListActivity {
             startActivity(load);
             break;
             
-        case 7:
+        case 6:
             url = "http://www.dailynews.co.tz/index.php/local-news?format=feed&type=rss";
             load = new Intent(MagazetiActivity.this,
                     com.tanzoft.habarihub.rss_activities.SplashActivity.class);

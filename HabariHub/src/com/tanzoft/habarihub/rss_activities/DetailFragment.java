@@ -61,7 +61,7 @@ public class DetailFragment extends Fragment {
 
 		// Set the views
 		title.setText(fFeed.getItem(fPos).getTitle());
-		desc.loadDataWithBaseURL("http://www.androidcentral.com/", fFeed
+		desc.loadDataWithBaseURL("http://www.tanzoft.com/", fFeed
 				.getItem(fPos).getDescription(), "text/html", "UTF-8", null);
 
 		return view;

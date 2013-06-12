@@ -37,11 +37,11 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <Button
-                android:id="@+id/button_gplus"
+                android:id="@+id/button_developers"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left|center"
-                android:text="@string/button_followme" />
+                android:text="@string/button_developers" />
 
             <Button
                 android:id="@+id/button_github"

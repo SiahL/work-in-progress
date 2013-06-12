@@ -5,96 +5,106 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
+
+import com.fima.cardsui.views.CardUI;
+import com.tanzoft.habarihub.ui.MyPlayCard;
 
 public class MainActivity extends Activity {
 
-	Button blogs;
-	Button magazeti;
-	Button radio;
-	Button about;
-	Button social;
-	Button videos;
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		
-		//sections of the app, all list views except radio
-		blogs = (Button)findViewById(R.id.blogs);
-		magazeti=(Button)findViewById(R.id.magazeti);
-		radio=(Button)findViewById(R.id.radio);
-		about=(Button)findViewById(R.id.about);
-		social=(Button)findViewById(R.id.social);
-		videos=(Button)findViewById(R.id.videos);
-		
-		about.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent about = new Intent(MainActivity.this,AboutActivity.class);
-				startActivity(about);
-				
-			}
-		});
-		
-		blogs.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent blogs = new Intent(MainActivity.this, BlogsActivity.class);
-				startActivity(blogs);
-				
-			}
-		});
-		
-		magazeti.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent magazeti = new Intent(MainActivity.this, MagazetiActivity.class);
-				startActivity(magazeti);
-				
-			}
-		});
-		
-		radio.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent radio = new Intent(MainActivity.this, RadioActivity.class);
-				startActivity(radio);
-				
-			}
-		});
-		
-		videos.setOnClickListener(new View.OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                Intent video = new Intent(MainActivity.this, VideosActivity.class);
-                startActivity(video);
-                
-            }
-        });
-		
-		social.setOnClickListener(new View.OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                Intent social = new Intent(MainActivity.this, SocialActivity.class);
-                startActivity(social);
-                
-            }
-        });
-	}
+    CardUI mCardView;
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cards);
+
+        mCardView = (CardUI) findViewById(R.id.cardsview);
+        mCardView.setSwipeable(false);
+
+        MyPlayCard blogs = new MyPlayCard("Blogs and Sites",
+                "Your gateway to latest news from TZ finest", "#e00707",
+                "#e00707", false, false);
+
+        blogs.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent blog = new Intent(MainActivity.this,
+                        com.tanzoft.habarihub.BlogsActivity.class);
+                startActivity(blog);
+
+            }
+        });
+        mCardView.addCard(blogs);
+
+        MyPlayCard newspapers = new MyPlayCard("Newspapers",
+                "Preview latest headlines.", "#e00707", "#e00707", false, false);
+
+        newspapers.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent news = new Intent(MainActivity.this,
+                        com.tanzoft.habarihub.MagazetiActivity.class);
+                startActivity(news);
+
+            }
+        });
+        mCardView.addCard(newspapers);
+
+        MyPlayCard radios = new MyPlayCard("Radio", "Radio on the go!!",
+                "#e00707", "#33B5E5", false, false);
+
+        radios.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent radio = new Intent(MainActivity.this,
+                        com.tanzoft.habarihub.RadioActivity.class);
+                startActivity(radio);
+
+            }
+        });
+        mCardView.addCard(radios);
+
+        MyPlayCard videos = new MyPlayCard("Videos", "TZ Videos on youtube",
+                "#e00707", "#33B5E5", false, false);
+
+        videos.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent video = new Intent(MainActivity.this,
+                        com.tanzoft.habarihub.VideosActivity.class);
+                startActivity(video);
+
+            }
+        });
+        mCardView.addCard(videos);
+
+        MyPlayCard about = new MyPlayCard("About Us", "Know Us. Meet Us.",
+                "#e00707", "#e00707", false, false);
+
+        about.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent abt = new Intent(MainActivity.this,
+                        com.tanzoft.habarihub.AboutActivity.class);
+                startActivity(abt);
+
+            }
+        });
+        mCardView.addCard(about);
+
+        mCardView.refresh();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
 
 }

@@ -8,14 +8,14 @@ package com.fima.cardsui;
 
 public final class R {
 	public static final class id {
-		public static final int listView = 0x7f0a0018;
-		public static final int sticky = 0x7f0a0019;
-		public static final int cardContent = 0x7f0a0020;
-		public static final int placeholder = 0x7f0a001f;
-		public static final int tableLayout = 0x7f0a001b;
-		public static final int stackContainer = 0x7f0a0022;
-		public static final int ScrollView1 = 0x7f0a001a;
-		public static final int stackTitle = 0x7f0a0021;
+		public static final int listView = 0x7f0a001b;
+		public static final int sticky = 0x7f0a001c;
+		public static final int cardContent = 0x7f0a0023;
+		public static final int placeholder = 0x7f0a0022;
+		public static final int tableLayout = 0x7f0a001e;
+		public static final int stackContainer = 0x7f0a0025;
+		public static final int ScrollView1 = 0x7f0a001d;
+		public static final int stackTitle = 0x7f0a0024;
 	}
 	public static final class style {
 		public static final int CardLightText = 0x7f070001;
@@ -38,21 +38,21 @@ public final class R {
 		public static final int card_grid_text = 0x7f050005;
 	}
 	public static final class layout {
-		public static final int item_card = 0x7f03000e;
-		public static final int item_card_empty_first = 0x7f03000f;
-		public static final int item_stack = 0x7f030012;
-		public static final int item_card_empty_last = 0x7f030010;
-		public static final int cards_view = 0x7f030008;
-		public static final int cards_view_multicolumn = 0x7f030009;
-		public static final int item_play_card_empty_first = 0x7f030011;
-		public static final int header = 0x7f03000d;
+		public static final int item_card = 0x7f03000f;
+		public static final int item_card_empty_first = 0x7f030010;
+		public static final int item_stack = 0x7f030013;
+		public static final int item_card_empty_last = 0x7f030011;
+		public static final int cards_view = 0x7f030009;
+		public static final int cards_view_multicolumn = 0x7f03000a;
+		public static final int item_play_card_empty_first = 0x7f030012;
+		public static final int header = 0x7f03000e;
 	}
 	public static final class drawable {
 		public static final int card_background_shadow = 0x7f020006;
 		public static final int card = 0x7f020004;
 		public static final int card_background = 0x7f020005;
 		public static final int card_shadow = 0x7f020007;
-		public static final int top_shadow = 0x7f020014;
+		public static final int top_shadow = 0x7f020018;
 	}
 	public static final class dimen {
 		public static final int web_suggestion_icon_size = 0x7f060006;

@@ -1,5 +1,6 @@
 package com.tanzoft.habarihub.rss_activities;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -97,7 +98,8 @@ public class ListActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	
+    @SuppressLint("NewApi")
     public void refreshList(final MenuItem item) {
 		/* Attach a rotating ImageView to the refresh item as an ActionView */
 		LayoutInflater inflater = (LayoutInflater) getApplication()

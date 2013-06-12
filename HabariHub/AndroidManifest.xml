@@ -16,76 +16,24 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name="com.tanzoft.habarihub.MainActivity"
-            android:label="@string/app_name" >
+        <activity android:name="com.tanzoft.habarihub.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.tanzoft.habarihub.AboutActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="com.tanzoft.habarihub.ABOUTACTIVITY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tanzoft.habarihub.BlogsActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="com.tanzoft.habarihub.BLOGSACTIVITY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tanzoft.habarihub.MagazetiActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="com.tanzoft.habarihub.MAGAZETIACTIVITY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tanzoft.habarihub.RadioActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="com.tanzoft.habarihub.RADIOACTIVITY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tanzoft.habarihub.MediaActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="com.tanzoft.habarihub.MEDIAACTIVITY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tanzoft.habarihub.WebActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="com.tanzoft.habarihub.MEDIAACTIVITY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <activity android:name="com.tanzoft.habarihub.AboutActivity" />
+        <activity android:name="com.tanzoft.habarihub.RadioActivity" />
+        <activity android:name="com.tanzoft.habarihub.VideosActivity" />
+        <activity android:name="com.tanzoft.habarihub.MagazetiActivity" />
+        <activity android:name="com.tanzoft.habarihub.BlogsActivity" />
+        <activity android:name="com.tanzoft.habarihub.MediaActivity" />
+        <activity android:name="com.tanzoft.habarihub.Developers" />
         <activity android:name="com.tanzoft.habarihub.rss_activities.SplashActivity" />
         <activity android:name="com.tanzoft.habarihub.rss_activities.ListActivity" />
         <activity android:name="com.tanzoft.habarihub.rss_activities.DetailActivity" />
         <activity android:name="com.tanzoft.habarihub.rss_activities.DetailFragment" />
-        <activity android:name="com.tanzoft.habarihub.VideosActivity" />
         <activity android:name="com.tanzoft.habarihub.SocialActivity" />
         <activity android:name="com.tanzoft.habarihub.ui.CardsUI" />
         <activity android:name="com.tanzoft.habarihub.ui.MyCard" />
