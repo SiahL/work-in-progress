@@ -1,18 +1,17 @@
 package com.tanzoft.habarihub;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.fima.cardsui.views.CardUI;
 import com.tanzoft.habarihub.ui.MyPlayCard;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends SherlockActivity {
 
     CardUI mCardView;
 
@@ -113,7 +112,7 @@ public class MainActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
     

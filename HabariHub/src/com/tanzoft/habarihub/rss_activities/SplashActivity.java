@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,11 +16,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.tanzoft.habarihub.R;
 import com.tanzoft.habarihub.parser.DOMParser;
 import com.tanzoft.habarihub.parser.RSSFeed;
 
-public class SplashActivity extends Activity {
+public class SplashActivity extends SherlockActivity {
 
 	String RSSFEEDURL;
 	RSSFeed feed;

@@ -1,23 +1,23 @@
 package com.tanzoft.habarihub;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class AboutActivity extends Activity {
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
+public class AboutActivity extends SherlockActivity {
 	
 	Button developers;
 	Button github;
 	Button paypal;
 
-	@SuppressLint("NewApi")
+
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -28,7 +28,7 @@ public class AboutActivity extends Activity {
 		github = (Button)findViewById(R.id.button_github);
 		paypal = (Button)findViewById(R.id.button_paypal);
 		
-		ActionBar actionBar = getActionBar();
+		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		//open a web browser to developer's google+ page when button is pressed
 		developers.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +75,7 @@ public class AboutActivity extends Activity {
 	
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
     

@@ -1,22 +1,23 @@
 package com.tanzoft.habarihub;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.ListActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MagazetiActivity extends ListActivity {
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
+public class MagazetiActivity extends SherlockListActivity {
 
     String[] magazeti = { "Habari Leo", "Mwananchi", "Mtanzania",
             "Spoti Starehe", "Mwanahalisi", "Raia Mwema", "Daily News" };
 
-    @SuppressLint("NewApi")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -24,7 +25,7 @@ public class MagazetiActivity extends ListActivity {
         setListAdapter(new ArrayAdapter<String>(MagazetiActivity.this,
                 android.R.layout.simple_list_item_1, magazeti));
         
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
@@ -97,7 +98,7 @@ public class MagazetiActivity extends ListActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 

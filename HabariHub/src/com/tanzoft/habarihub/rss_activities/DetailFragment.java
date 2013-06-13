@@ -1,14 +1,8 @@
 package com.tanzoft.habarihub.rss_activities;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
@@ -16,13 +10,17 @@ import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
 import android.widget.ScrollView;
-import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
+import com.actionbarsherlock.app.SherlockFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.ShareActionProvider;
 import com.tanzoft.habarihub.R;
 import com.tanzoft.habarihub.parser.RSSFeed;
 
-public class DetailFragment extends Fragment {
+public class DetailFragment extends SherlockFragment {
 	private int fPos;
 	RSSFeed fFeed;
 
@@ -67,7 +65,6 @@ public class DetailFragment extends Fragment {
 		return view;
 	}
 
-	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		inflater.inflate(R.menu.activity_desc, menu);

@@ -1,16 +1,10 @@
 package com.tanzoft.habarihub.rss_activities;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Activity;
+
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -23,12 +17,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.tanzoft.habarihub.R;
 import com.tanzoft.habarihub.image.ImageLoader;
 import com.tanzoft.habarihub.parser.DOMParser;
 import com.tanzoft.habarihub.parser.RSSFeed;
 
-public class ListActivity extends Activity {
+public class ListActivity extends SherlockActivity {
 
 	RSSFeed feed;
 	ListView lv;
@@ -99,7 +97,7 @@ public class ListActivity extends Activity {
 	}
 
 	
-    @SuppressLint("NewApi")
+   
     public void refreshList(final MenuItem item) {
 		/* Attach a rotating ImageView to the refresh item as an ActionView */
 		LayoutInflater inflater = (LayoutInflater) getApplication()
@@ -123,7 +121,7 @@ public class ListActivity extends Activity {
 
 				ListActivity.this.runOnUiThread(new Runnable() {
 
-					@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+					
                     @Override
 					public void run() {
 						if (feed != null && feed.getItemCount() > 0) {

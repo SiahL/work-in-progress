@@ -3,30 +3,29 @@ package com.tanzoft.habarihub;
 import java.util.LinkedList;
 import java.util.List;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class RadioActivity extends ListActivity {
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
+public class RadioActivity extends SherlockListActivity {
 
 	final List<String[]> radioList = new LinkedList<String[]>();
 
-	@SuppressLint("NewApi")
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		ActionBar actionBar = getActionBar();
+		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		//radioList.add(new String[] { "Clouds FM", "The People's Station", "" });
@@ -101,7 +100,7 @@ public class RadioActivity extends ListActivity {
 	
 	public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
     

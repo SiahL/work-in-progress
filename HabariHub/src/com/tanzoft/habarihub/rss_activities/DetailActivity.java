@@ -1,18 +1,18 @@
 package com.tanzoft.habarihub.rss_activities;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.MenuItem;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.MenuItem;
 import com.tanzoft.habarihub.R;
 import com.tanzoft.habarihub.parser.RSSFeed;
 
-public class DetailActivity extends FragmentActivity {
+public class DetailActivity extends SherlockFragmentActivity {
 
 	RSSFeed feed;
 	int pos;
@@ -24,8 +24,9 @@ public class DetailActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detail);
 
-		ActionBar actionBar = getActionBar();
+		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
+		
 
 		// Get the feed object and the position from the Intent
 		feed = (RSSFeed) getIntent().getExtras().get("feed");
