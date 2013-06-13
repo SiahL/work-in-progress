@@ -36,6 +36,7 @@ public class CardsUI extends SherlockActivity {
 
         feed = (RSSFeed) getIntent().getExtras().get("feed");
 
+        //set up card
         mCardView = (CardUI) findViewById(R.id.cardsview);
         mCardView.setSwipeable(false);
 
