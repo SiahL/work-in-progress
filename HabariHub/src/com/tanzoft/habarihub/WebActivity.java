@@ -1,11 +1,12 @@
 package com.tanzoft.habarihub;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+@SuppressLint("SetJavaScriptEnabled")
 public class WebActivity extends Activity {
 
     WebView myweb;

@@ -1,5 +1,6 @@
 package com.tanzoft.habarihub.rss_activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import com.actionbarsherlock.widget.ShareActionProvider;
 import com.tanzoft.habarihub.R;
 import com.tanzoft.habarihub.parser.RSSFeed;
 
+@SuppressLint("SetJavaScriptEnabled")
 public class DetailFragment extends SherlockFragment {
 	private int fPos;
 	RSSFeed fFeed;
