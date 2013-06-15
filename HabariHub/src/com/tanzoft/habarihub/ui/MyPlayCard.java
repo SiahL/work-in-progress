@@ -1,9 +1,7 @@
 package com.tanzoft.habarihub.ui;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;

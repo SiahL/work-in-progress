@@ -11,10 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 public class RadioActivity extends SherlockListActivity {
 
@@ -25,8 +22,8 @@ public class RadioActivity extends SherlockListActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
+		//ActionBar actionBar = getSupportActionBar();
+		//actionBar.setDisplayHomeAsUpEnabled(true);
 
 		//radioList.add(new String[] { "Clouds FM", "The People's Station", "" });
 		radioList.add(new String[] { "Choice FM", "The Better Music Mix",
@@ -97,7 +94,7 @@ public class RadioActivity extends SherlockListActivity {
 		playRadio.putExtra("MediaActivity", channel[2]);
 		startActivity(playRadio);
 	}
-	
+	/*
 	public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getSupportMenuInflater().inflate(R.menu.main_menu, menu);
@@ -113,7 +110,7 @@ public class RadioActivity extends SherlockListActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    } */
 
     //Kill activity when it goes to background
     public void onPause(){

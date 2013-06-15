@@ -26,8 +26,8 @@ public class BlogsActivity extends SherlockListActivity {
         setListAdapter(new ArrayAdapter<String>(BlogsActivity.this,
                 android.R.layout.simple_list_item_1, blogsList));
         
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        //ActionBar actionBar = getSupportActionBar();
+       // actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -95,7 +95,7 @@ public class BlogsActivity extends SherlockListActivity {
         getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
-    
+  /*  
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
@@ -105,7 +105,7 @@ public class BlogsActivity extends SherlockListActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    } */
     
     //kill activity when it goes in the background
     public void onPause(){

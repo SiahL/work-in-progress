@@ -12,10 +12,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 public class MediaActivity extends SherlockActivity {
 	private MediaPlayer mediaPlayer = new MediaPlayer();
@@ -35,9 +33,6 @@ public class MediaActivity extends SherlockActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_player);
-		
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		if (mediaPlayer.isPlaying()) {
 			mediaPlayer.stop();
@@ -150,44 +145,38 @@ public class MediaActivity extends SherlockActivity {
         getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
-    
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
 
-        case android.R.id.home:
-            // app icon in action bar clicked; finish activity to go home
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-    
+  
     //kill activity when it goes in the background
 	@Override
 	public void onPause(){
 		super.onPause();
+		if(mediaPlayer.isPlaying()){
 		mediaPlayer.stop();
+		
+		}
 		mediaPlayer.release();
-		mediaPlayer = null;
-	}
-//	public void onPause() {
-//		super.onPause();
-//		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-//				this).setSmallIcon(R.drawable.ic_launcher)
-//				.setContentTitle("Habari Hub Radio is running")
-//				.setContentText("Touch to stop radio").setAutoCancel(true);
-//
-//		Intent resultIntent = new Intent(MediaActivity.this, MainActivity.class);
-//		resultIntent.putExtra("MediaActivity", url);
-//		TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-//
-//		stackBuilder.addNextIntent(resultIntent);
-//
-//		PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,
-//				PendingIntent.FLAG_UPDATE_CURRENT);
-//		mBuilder.setContentIntent(resultPendingIntent);
-//		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//		mNotificationManager.notify(0, mBuilder.build());
-//
-//	}
+	} 
+	
+	/*
+	public void onPause() {
+		super.onPause();
+		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+				this).setSmallIcon(R.drawable.ic_launcher)
+				.setContentTitle("Habari Hub Radio is running")
+				.setContentText("Go to radio").setAutoCancel(true);
+
+		Intent resultIntent = new Intent(MediaActivity.this, MainActivity.class);
+		resultIntent.putExtra("MediaActivity", url);
+		TaskStackBuilder stackBuilder = TaskStackBuilder.from(getApplicationContext());
+
+		stackBuilder.addNextIntent(resultIntent);
+
+		PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,
+				PendingIntent.FLAG_UPDATE_CURRENT);
+		mBuilder.setContentIntent(resultPendingIntent);
+	    NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		mNotificationManager.notify(0, mBuilder.getNotification());
+
+	} */
 }

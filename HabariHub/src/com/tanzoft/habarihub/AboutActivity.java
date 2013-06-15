@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 public class AboutActivity extends SherlockActivity {
 	
@@ -28,8 +26,8 @@ public class AboutActivity extends SherlockActivity {
 		github = (Button)findViewById(R.id.button_github);
 		paypal = (Button)findViewById(R.id.button_paypal);
 		
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
+		//ActionBar actionBar = getSupportActionBar();
+		//actionBar.setDisplayHomeAsUpEnabled(true);
 		//open a web browser to developer's google+ page when button is pressed
 		developers.setOnClickListener(new View.OnClickListener() {
 			
@@ -78,7 +76,7 @@ public class AboutActivity extends SherlockActivity {
         getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
-    
+ /*   
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
@@ -88,7 +86,7 @@ public class AboutActivity extends SherlockActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    } */
     
     //kill activity when it goes in the background
     public void onPause(){

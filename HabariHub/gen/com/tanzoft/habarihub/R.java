@@ -1167,6 +1167,7 @@ containing a value of this type.
         public static final int button_paypal=0x7f050037;
         public static final int cardContent=0x7f050055;
         public static final int cardsview=0x7f050039;
+        public static final int color=0x7f050065;
         public static final int contentLayout=0x7f05004b;
         public static final int date=0x7f05005a;
         public static final int desc=0x7f050053;
@@ -1400,6 +1401,8 @@ containing a value of this type.
         public static final int Sherlock___Widget_Holo_ListView=0x7f0b0026;
         public static final int Sherlock___Widget_Holo_Spinner=0x7f0b0023;
         public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0b0033;
+        public static final int SherlockDark=0x7f0b0063;
+        public static final int SherlockLight=0x7f0b0064;
         public static final int StackTitle=0x7f0b005d;
         public static final int TextAppearance_Sherlock=0x7f0b004a;
         public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0b004e;

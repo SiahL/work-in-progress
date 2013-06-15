@@ -5,10 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
-import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 import com.fima.cardsui.views.CardUI;
 import com.tanzoft.habarihub.ui.MyImageCard;
 
@@ -21,9 +19,6 @@ public class Developers extends SherlockActivity {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cards);
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
 
         mCardView = (CardUI) findViewById(R.id.cardsview);
         // cards cannot be swiped away as in google now, set true to make cards
@@ -104,23 +99,6 @@ public class Developers extends SherlockActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-        case android.R.id.home:
-            // app icon in action bar clicked; finish activity to go home
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    // when activity goes to background kill activity
-    public void pause() {
-        super.onPause();
-        finish();
     }
 
 }

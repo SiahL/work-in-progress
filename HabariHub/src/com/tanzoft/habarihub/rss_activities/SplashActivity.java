@@ -84,7 +84,7 @@ public class SplashActivity extends SherlockActivity {
 
 	}
 
-	/*
+	
 	private void startLisActivity(RSSFeed feed) {
 
 		Bundle bundle = new Bundle();
@@ -98,9 +98,9 @@ public class SplashActivity extends SherlockActivity {
 		// kill this activity
 		finish();
 
-	} */
+	} 
 	
-	
+	/*
 	   private void startLisActivity(RSSFeed feed) {
 
 	        Bundle bundle = new Bundle();
@@ -114,7 +114,7 @@ public class SplashActivity extends SherlockActivity {
 	        // kill this activity
 	        finish();
 
-	    } 
+	    } */
 
 	private class AsyncLoadXMLFeed extends AsyncTask<Void, Void, Void> {
 

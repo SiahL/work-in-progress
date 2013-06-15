@@ -32,6 +32,7 @@ public class ListActivity extends SherlockActivity {
 	ListView lv;
 	CustomListAdapter adapter;
 	String feedLink;
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -149,6 +150,7 @@ public class ListActivity extends SherlockActivity {
 
 		private LayoutInflater layoutInflater;
 		public ImageLoader imageLoader;
+		
 
 		public CustomListAdapter(ListActivity activity) {
 

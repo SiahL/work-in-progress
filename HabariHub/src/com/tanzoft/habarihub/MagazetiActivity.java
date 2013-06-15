@@ -7,10 +7,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 public class MagazetiActivity extends SherlockListActivity {
 
@@ -25,8 +23,8 @@ public class MagazetiActivity extends SherlockListActivity {
         setListAdapter(new ArrayAdapter<String>(MagazetiActivity.this,
                 android.R.layout.simple_list_item_1, magazeti));
         
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -101,7 +99,7 @@ public class MagazetiActivity extends SherlockListActivity {
         getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
-
+/*
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
@@ -111,7 +109,7 @@ public class MagazetiActivity extends SherlockListActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    } */
 
     // kill activity when it goes in the background
     public void onPause() {

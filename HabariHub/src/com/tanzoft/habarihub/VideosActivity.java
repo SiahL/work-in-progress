@@ -7,10 +7,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 public class VideosActivity extends SherlockListActivity {
 
@@ -25,8 +23,8 @@ public class VideosActivity extends SherlockListActivity {
         setListAdapter(new ArrayAdapter<String>(VideosActivity.this,
                 android.R.layout.simple_list_item_1, channels));
         
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+       // ActionBar actionBar = getSupportActionBar();
+       // actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -86,7 +84,7 @@ public class VideosActivity extends SherlockListActivity {
         getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
-    
+    /*
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
@@ -96,7 +94,7 @@ public class VideosActivity extends SherlockListActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    } */
 
     //kill activity when it goes to background
     public void onPause(){
