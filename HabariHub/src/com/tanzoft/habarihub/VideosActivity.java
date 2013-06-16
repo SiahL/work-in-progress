@@ -13,7 +13,7 @@ import com.actionbarsherlock.view.Menu;
 public class VideosActivity extends SherlockListActivity {
 
     String[] channels = { "Mkasi", "ITV Tanzania", "SwahiliWood",
-            "Sporah Show", "Bongo Flava(Radio Mbao)" };
+            "Sporah Show", "Bongo Flava(Radio Mbao)", "Cheusi Dawa" };
 
 
     @Override
@@ -70,6 +70,14 @@ public class VideosActivity extends SherlockListActivity {
 
         case 4:
             url = "http://www.youtube.com/rss/user/djkvelli/videos.rss";
+            load = new Intent(VideosActivity.this,
+                    com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+            load.putExtra("site", url);
+            startActivity(load);
+            break;
+            
+        case 5:
+            url = "http://www.youtube.com/rss/user/Cheusidawa/videos.rss";
             load = new Intent(VideosActivity.this,
                     com.tanzoft.habarihub.rss_activities.SplashActivity.class);
             load.putExtra("site", url);

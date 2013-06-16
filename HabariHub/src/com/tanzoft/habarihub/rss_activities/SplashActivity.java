@@ -101,6 +101,8 @@ public class SplashActivity extends SherlockActivity {
 	} 
 	
 	/*
+	 
+	 //enable this method to launc activity with cards UI instead of list view, remember to comment out above method
 	   private void startLisActivity(RSSFeed feed) {
 
 	        Bundle bundle = new Bundle();
