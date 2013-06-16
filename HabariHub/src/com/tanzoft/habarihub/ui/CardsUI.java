@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.fima.cardsui.views.CardUI;
 import com.tanzoft.habarihub.R;
 import com.tanzoft.habarihub.parser.RSSFeed;
@@ -30,8 +32,8 @@ public class CardsUI extends SherlockActivity {
         setContentView(R.layout.activity_cards);
         
         //getActionBar
-      // ActionBar actionBar = getSupportActionBar();
-      // actionBar.setDisplayHomeAsUpEnabled(true);
+      ActionBar actionBar = getSupportActionBar();
+       actionBar.setDisplayHomeAsUpEnabled(true);
 
         feed = (RSSFeed) getIntent().getExtras().get("feed");
 
@@ -71,7 +73,7 @@ public class CardsUI extends SherlockActivity {
         getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
-/*
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
@@ -82,12 +84,12 @@ public class CardsUI extends SherlockActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    } */
+    } 
 
     // kill activity when it goes in the background
     public void onPause() {
         super.onPause();
-        finish();
+        //finish();
     } 
 
 }

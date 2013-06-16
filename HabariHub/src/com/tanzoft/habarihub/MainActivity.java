@@ -1,5 +1,7 @@
 package com.tanzoft.habarihub;
 
+import org.apache.http.protocol.HTTP;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -73,8 +75,9 @@ public class MainActivity extends SherlockActivity {
         mCardView.addCard(radios);
 
         // create videos card
-        MyPlayCard videos = new MyPlayCard("Videos", "TZ Videos on youtube",
-                "#e00707", "#33B5E5", false, false);
+        MyPlayCard videos = new MyPlayCard("Videos",
+                "Videos from TZ popular youtube channels", "#e00707",
+                "#33B5E5", false, false);
 
         videos.setOnClickListener(new View.OnClickListener() {
 
@@ -125,8 +128,17 @@ public class MainActivity extends SherlockActivity {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(myUrl)));
             break;
 
-        case R.id.color:
-            
+        case R.id.report:
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            /*
+             * The intent does not have a URI, so declare the "text/plain" MIME
+             * type, emailIntent.setType("text/plain");
+             */
+            emailIntent.setType(HTTP.PLAIN_TEXT_TYPE);
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, "damas@tanzoft.com"); // recipients
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Habari Hub Error");
+            startActivity(Intent.createChooser(emailIntent,
+                    "Choose Email Client"));
             break;
 
         default:
@@ -134,6 +146,18 @@ public class MainActivity extends SherlockActivity {
         }
 
         return true;
+    }
+
+    public void onPause() {
+        super.onPause();
+    }
+
+    public void onStop() {
+        super.onStop();
+    }
+
+    public void onDestroy() {
+        super.onDestroy();
     }
 
 }

@@ -100,5 +100,10 @@ public class Developers extends SherlockActivity {
         getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
+    
+    public void onPause(){
+        super.onPause();
+        finish();
+    }
 
 }

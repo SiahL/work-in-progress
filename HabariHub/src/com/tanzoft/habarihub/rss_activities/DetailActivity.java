@@ -23,10 +23,10 @@ public class DetailActivity extends SherlockFragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detail);
-/*
+
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		*/
+		
 
 		// Get the feed object and the position from the Intent
 		feed = (RSSFeed) getIntent().getExtras().get("feed");
@@ -41,7 +41,7 @@ public class DetailActivity extends SherlockFragmentActivity {
 		pager.setCurrentItem(pos);
 
 	}
-/*
+
 	@Override
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -53,7 +53,7 @@ public class DetailActivity extends SherlockFragmentActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	} */
+	} 
 
 	public class DescAdapter extends FragmentStatePagerAdapter {
 		public DescAdapter(FragmentManager fm) {

@@ -2,6 +2,8 @@ package com.tanzoft.habarihub.parser;
 
 import java.io.Serializable;
 
+import android.text.Html;
+
 public class RSSItem implements Serializable {
 
 	private static final long serialVersionUID = 1L;

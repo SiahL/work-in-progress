@@ -61,6 +61,11 @@
         <activity
             android:name="com.tanzoft.habarihub.ui.CardsUI"
             android:screenOrientation="portrait" />
+        
+        <activity
+            android:name="com.tanzoft.habarihub.grid.GridActivity"
+            android:screenOrientation="portrait" />
+    
     </application>
 
 </manifest>

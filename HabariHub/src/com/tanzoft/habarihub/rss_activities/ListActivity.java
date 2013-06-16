@@ -15,8 +15,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -39,6 +39,9 @@ public class ListActivity extends SherlockActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.feed_list);
+		
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		// set the feed link for refresh
 		feedLink = new SplashActivity().RSSFEEDURL;
@@ -88,10 +91,11 @@ public class ListActivity extends SherlockActivity {
 		case R.id.refresh_option:
 			refreshList(item);
 			return (true);
-
-		case R.id.about_option:
-			Toast.makeText(this, "RSS Reader!", Toast.LENGTH_SHORT).show();
-			return (true);
+			
+		 case android.R.id.home:
+	            // app icon in action bar clicked; finish activity to go home
+	            finish();
+	            return true;
 
 		}
 		return super.onOptionsItemSelected(item);

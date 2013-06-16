@@ -21,11 +21,11 @@
     <string name="button_social">Social Media</string>
     <string name="button_developers">Developers</string>
     <string name="button_github">OpenSource at Github</string>
-    <string name="button_paypal">Suport development at PayPal</string>
+    <string name="button_experimental">Experimental Stuffs</string>
     <string name="about_title">Habari Hub</string>
     <string name="radio_title">H/H Radio</string>
     <string name="radio_greeting">Karibu</string>
-    <string name="about_donations">PayPal donations do not grant any upgrade or improvements, they just support developer work. App will remain free without donations</string>
+    <string name="about_donations">Experimental stuffs offers you a quick look of changes coming in future updates\nDISCLAIMER: They may not work on your device and may force close</string>
     <string name="about_text">Habari Hub is a lightweight app created to integrate major Tanzania news sources into one place. We are NOT affiliated to any source used in this app</string>
     <string name="main_test">Thank you for being part of this app, as of now this app is in early development stages. Timeline for this app is as follows:\n1st June 2013 \- Alpha Release\n1st July 2013 \- Beta Release\n1st August 2013 \- Final Release.\nAlmost everything right now is in webView but we are working hard to bring everything native. \nNB: Dates are subject to change at any given time.</string>
 
