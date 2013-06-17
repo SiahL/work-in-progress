@@ -59,7 +59,7 @@ public class MainActivity extends SherlockActivity {
         mCardView.addCard(newspapers);
 
         // create radios card
-        MyPlayCard radios = new MyPlayCard("Radio", "Radio on the go!!",
+        MyPlayCard radios = new MyPlayCard("Radio", "Radio on the go!!(NB: work in progress)",
                 "#e00707", "#33B5E5", false, false);
 
         radios.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +77,7 @@ public class MainActivity extends SherlockActivity {
         // create videos card
         MyPlayCard videos = new MyPlayCard("Videos",
                 "Videos from TZ popular youtube channels", "#e00707",
-                "#33B5E5", false, false);
+                "#e00707", false, false);
 
         videos.setOnClickListener(new View.OnClickListener() {
 
