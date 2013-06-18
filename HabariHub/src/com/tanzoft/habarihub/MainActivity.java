@@ -59,8 +59,9 @@ public class MainActivity extends SherlockActivity {
         mCardView.addCard(newspapers);
 
         // create radios card
-        MyPlayCard radios = new MyPlayCard("Radio", "Radio on the go!!(NB: work in progress)",
-                "#e00707", "#33B5E5", false, false);
+        MyPlayCard radios = new MyPlayCard("Radio",
+                "Radio on the go!!(NB: work in progress)", "#e00707",
+                "#33B5E5", false, false);
 
         radios.setOnClickListener(new View.OnClickListener() {
 
@@ -135,7 +136,9 @@ public class MainActivity extends SherlockActivity {
              * type, emailIntent.setType("text/plain");
              */
             emailIntent.setType(HTTP.PLAIN_TEXT_TYPE);
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, "damas@tanzoft.com"); // recipients
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {
+                    "damas@tanzoft.com", "cmeo226@yahoo.com",
+                    "pkinasha@gmail.com", "igotti47@gmail.com" }); // recipients
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Habari Hub Error");
             startActivity(Intent.createChooser(emailIntent,
                     "Choose Email Client"));

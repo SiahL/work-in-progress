@@ -200,5 +200,9 @@ public class SplashActivity extends SherlockActivity {
 		return _feed;
 
 	}
+	
+	public void onPause(){
+	    super.onPause();
+	}
 
 }

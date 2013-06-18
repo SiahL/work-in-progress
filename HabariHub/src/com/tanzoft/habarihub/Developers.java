@@ -1,5 +1,7 @@
 package com.tanzoft.habarihub;
 
+import org.apache.http.protocol.HTTP;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +9,7 @@ import android.view.View;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.fima.cardsui.views.CardUI;
 import com.tanzoft.habarihub.ui.MyImageCard;
 
@@ -99,9 +102,42 @@ public class Developers extends SherlockActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
+
     }
-    
-    public void onPause(){
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+        case android.R.id.home:
+            // app icon in action bar clicked; finish activity to go home
+            finish();
+            return true;
+
+            // rate application
+        case R.id.rate:
+            String myUrl = "https://play.google.com/store/apps/details?id=com.tanzoft.habarihub";
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(myUrl)));
+            break;
+
+        case R.id.report:
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            /*
+             * The intent does not have a URI, so declare the "text/plain" MIME
+             * type, emailIntent.setType("text/plain");
+             */
+            emailIntent.setType(HTTP.PLAIN_TEXT_TYPE);
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {
+                    "damas@tanzoft.com", "cmeo226@yahoo.com",
+                    "pkinasha@gmail.com", "igotti47@gmail.com" }); // recipients
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Habari Hub Error");
+            startActivity(Intent.createChooser(emailIntent,
+                    "Choose Email Client"));
+            break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void onPause() {
         super.onPause();
         finish();
     }

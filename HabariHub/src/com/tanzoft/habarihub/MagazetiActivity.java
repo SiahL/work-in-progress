@@ -1,6 +1,9 @@
 package com.tanzoft.habarihub;
 
+import org.apache.http.protocol.HTTP;
+
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -59,7 +62,7 @@ public class MagazetiActivity extends SherlockListActivity {
                     com.tanzoft.habarihub.rss_activities.SplashActivity.class);
             load.putExtra("site", url);
             startActivity(load);
-            break;        
+            break;
 
         case 3:
             url = "http://www.magazetini.com/feed";
@@ -68,7 +71,7 @@ public class MagazetiActivity extends SherlockListActivity {
             load.putExtra("site", url);
             startActivity(load);
             break;
-            
+
         case 4:
             url = "http://mtanzania.co.tz/index.php?format=feed&type=rss";
             load = new Intent(MagazetiActivity.this,
@@ -84,7 +87,7 @@ public class MagazetiActivity extends SherlockListActivity {
             load.putExtra("site", url);
             startActivity(load);
             break;
-            
+
         case 6:
             url = "http://www.raiamwema.co.tz/rss.xml";
             load = new Intent(MagazetiActivity.this,
@@ -92,8 +95,6 @@ public class MagazetiActivity extends SherlockListActivity {
             load.putExtra("site", url);
             startActivity(load);
             break;
-
-       
 
         case 7:
             url = "http://www.spoti.co.tz/index.php?format=feed&type=rss";
@@ -135,6 +136,27 @@ public class MagazetiActivity extends SherlockListActivity {
             // app icon in action bar clicked; finish activity to go home
             finish();
             return true;
+
+            // rate application
+        case R.id.rate:
+            String myUrl = "https://play.google.com/store/apps/details?id=com.tanzoft.habarihub";
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(myUrl)));
+            break;
+
+        case R.id.report:
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            /*
+             * The intent does not have a URI, so declare the "text/plain" MIME
+             * type, emailIntent.setType("text/plain");
+             */
+            emailIntent.setType(HTTP.PLAIN_TEXT_TYPE);
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {
+                    "damas@tanzoft.com", "cmeo226@yahoo.com",
+                    "pkinasha@gmail.com", "igotti47@gmail.com" }); // recipients
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Habari Hub Error");
+            startActivity(Intent.createChooser(emailIntent,
+                    "Choose Email Client"));
+            break;
         }
         return super.onOptionsItemSelected(item);
     }
