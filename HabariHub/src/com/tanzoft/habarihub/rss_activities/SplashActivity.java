@@ -51,7 +51,7 @@ public class SplashActivity extends SherlockActivity {
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
 				builder.setMessage(
 						"Unable to reach server, \nPlease check your connectivity.")
-						.setTitle("TD RSS Reader")
+						.setTitle("Habari Hub")
 						.setCancelable(false)
 						.setPositiveButton("Exit",
 								new DialogInterface.OnClickListener() {
@@ -203,6 +203,7 @@ public class SplashActivity extends SherlockActivity {
 	
 	public void onPause(){
 	    super.onPause();
+	    finish();
 	}
 
 }

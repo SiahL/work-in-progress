@@ -196,27 +196,27 @@ public final class R {
 		public static final int card_background = 0x7f020075;
 		public static final int card_background_shadow = 0x7f020076;
 		public static final int card_shadow = 0x7f020077;
-		public static final int top_shadow = 0x7f02008b;
+		public static final int top_shadow = 0x7f020089;
 	}
 	public static final class id {
 		public static final int ScrollView1 = 0x7f05004e;
-		public static final int cardContent = 0x7f050055;
+		public static final int cardContent = 0x7f050054;
 		public static final int listView = 0x7f05004c;
-		public static final int placeholder = 0x7f050054;
-		public static final int stackContainer = 0x7f050057;
-		public static final int stackTitle = 0x7f050056;
+		public static final int placeholder = 0x7f050053;
+		public static final int stackContainer = 0x7f050056;
+		public static final int stackTitle = 0x7f050055;
 		public static final int sticky = 0x7f05004d;
 		public static final int tableLayout = 0x7f05004f;
 	}
 	public static final class layout {
 		public static final int cards_view = 0x7f03001d;
 		public static final int cards_view_multicolumn = 0x7f03001e;
-		public static final int header = 0x7f030023;
-		public static final int item_card = 0x7f030024;
-		public static final int item_card_empty_first = 0x7f030025;
-		public static final int item_card_empty_last = 0x7f030026;
-		public static final int item_play_card_empty_first = 0x7f030027;
-		public static final int item_stack = 0x7f030028;
+		public static final int header = 0x7f030022;
+		public static final int item_card = 0x7f030023;
+		public static final int item_card_empty_first = 0x7f030024;
+		public static final int item_card_empty_last = 0x7f030025;
+		public static final int item_play_card_empty_first = 0x7f030026;
+		public static final int item_stack = 0x7f030027;
 	}
 	public static final class style {
 		public static final int CardLightText = 0x7f0b005a;

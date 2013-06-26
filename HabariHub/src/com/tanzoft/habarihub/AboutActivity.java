@@ -60,9 +60,7 @@ public class AboutActivity extends SherlockActivity {
 
             @Override
             public void onClick(View v) {
-                Intent blah = new Intent(AboutActivity.this,
-                        com.tanzoft.habarihub.grid.GridActivity.class);
-                startActivity(blah);
+
             }
         });
     }

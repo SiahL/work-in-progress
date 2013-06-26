@@ -19,7 +19,7 @@ public class BlogsActivity extends SherlockListActivity {
     String[] blogsList = { "Michuzi Blog", "MillardAyo", "Bongo 5",
             "Cheka na Kitime", "Cheka Vichekesho", "DJ Choka", "Fununu Blog",
             "Gospel Kitaa", "Kajuna Son", "Kijiwe cha Kitime", "King Kapita",
-            "Mpekuzi", "Ramoursnet" };
+            "Mpekuzi", "Soka in Bongo", "Wapenda Soka" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class BlogsActivity extends SherlockListActivity {
             break;
 
         case 4:
-            blogSite = "http://chekavichekesho.wordpress.com/feed";
+            blogSite = "http://www.chekavichekesho.wordpress.com/feed";
             loadBlog = new Intent(BlogsActivity.this,
                     com.tanzoft.habarihub.rss_activities.SplashActivity.class);
             loadBlog.putExtra("site", blogSite);
@@ -81,7 +81,7 @@ public class BlogsActivity extends SherlockListActivity {
             break;
 
         case 5:
-            blogSite = "http://djchoka.blogspot.com/feeds/posts/default?alt=rss";
+            blogSite = "http://www.djchoka.blogspot.com/feeds/posts/default?alt=rss";
             loadBlog = new Intent(BlogsActivity.this,
                     com.tanzoft.habarihub.rss_activities.SplashActivity.class);
             loadBlog.putExtra("site", blogSite);
@@ -105,7 +105,7 @@ public class BlogsActivity extends SherlockListActivity {
             break;
 
         case 8:
-            blogSite = "http://kajunason.blogspot.com/feeds/posts/default?alt=rss";
+            blogSite = "http://www.kajunason.blogspot.com/feeds/posts/default?alt=rss";
             loadBlog = new Intent(BlogsActivity.this,
                     com.tanzoft.habarihub.rss_activities.SplashActivity.class);
             loadBlog.putExtra("site", blogSite);
@@ -129,7 +129,7 @@ public class BlogsActivity extends SherlockListActivity {
             break;
 
         case 11:
-            blogSite = "http://freebongo.blogspot.com/feeds/posts/default?alt=rss";
+            blogSite = "http://www.freebongo.blogspot.com/feeds/posts/default?alt=rss";
             loadBlog = new Intent(BlogsActivity.this,
                     com.tanzoft.habarihub.rss_activities.SplashActivity.class);
             loadBlog.putExtra("site", blogSite);
@@ -137,7 +137,15 @@ public class BlogsActivity extends SherlockListActivity {
             break;
 
         case 12:
-            blogSite = "http://ramoursnet.blogspot.com/feeds/posts/default?alt=rss";
+            blogSite = "http://www.sokainbongo.com/vikombe-vikubwa?format=feed&type=rss";
+            loadBlog = new Intent(BlogsActivity.this,
+                    com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+            loadBlog.putExtra("site", blogSite);
+            startActivity(loadBlog);
+            break;
+            
+        case 13:
+            blogSite = "http://www.wapendasoka.blogspot.com/feeds/posts/default?alt=rss";
             loadBlog = new Intent(BlogsActivity.this,
                     com.tanzoft.habarihub.rss_activities.SplashActivity.class);
             loadBlog.putExtra("site", blogSite);

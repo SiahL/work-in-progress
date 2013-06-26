@@ -93,7 +93,7 @@ public class MainActivity extends SherlockActivity {
         mCardView.addCard(videos);
 
         // create about card
-        MyPlayCard about = new MyPlayCard("About Us", "Know Us. Meet Us.",
+        MyPlayCard about = new MyPlayCard("About Us", "Know Us. Connect with Us.",
                 "#e00707", "#e00707", false, false);
 
         about.setOnClickListener(new View.OnClickListener() {
