@@ -1179,7 +1179,6 @@ containing a value of this type.
         public static final int listMode=0x7f050002;
         public static final int listView=0x7f05004c;
         public static final int magazeti=0x7f05003c;
-        public static final int menu_settings=0x7f050060;
         public static final int normal=0x7f050001;
         public static final int overflow=0x7f05004b;
         public static final int pager=0x7f050050;
@@ -1194,6 +1193,7 @@ containing a value of this type.
         public static final int relativeLayout2=0x7f050043;
         public static final int report=0x7f050061;
         public static final int scrollView1=0x7f050032;
+        public static final int share=0x7f050060;
         public static final int share_option=0x7f05005e;
         public static final int showCustom=0x7f050008;
         public static final int showHome=0x7f050005;

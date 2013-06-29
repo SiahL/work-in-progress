@@ -512,7 +512,6 @@ int id linearLayout1 0x7f05005b
 int id listMode 0x7f050002
 int id listView 0x7f05004c
 int id magazeti 0x7f05003c
-int id menu_settings 0x7f050060
 int id normal 0x7f050001
 int id overflow 0x7f05004b
 int id pager 0x7f050050
@@ -527,6 +526,7 @@ int id relativeLayout1 0x7f050042
 int id relativeLayout2 0x7f050043
 int id report 0x7f050061
 int id scrollView1 0x7f050032
+int id share 0x7f050060
 int id share_option 0x7f05005e
 int id showCustom 0x7f050008
 int id showHome 0x7f050005

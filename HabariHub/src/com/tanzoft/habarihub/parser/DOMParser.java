@@ -15,95 +15,99 @@ import org.w3c.dom.NodeList;
 
 public class DOMParser {
 
-    private RSSFeed _feed = new RSSFeed();
+	private RSSFeed _feed = new RSSFeed();
 
-    public RSSFeed parseXml(String xml) {
+	public RSSFeed parseXml(String xml) {
 
-        // _feed.clearList();
+		// _feed.clearList();
 
-        URL url = null;
-        try {
-            url = new URL(xml);
-        } catch (MalformedURLException e1) {
-            e1.printStackTrace();
-        }
+		URL url = null;
+		try {
+			url = new URL(xml);
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
 
-        try {
-            // Create required instances
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
+		try {
+			// Create required instances
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = dbf.newDocumentBuilder();
 
-            InputStream is = url.openStream();
-            
-            
-            // Parse the xml
-            Document doc = db.parse(is);
-            is.close();
-            doc.getDocumentElement().normalize();
+			InputStream is = url.openStream();
 
-            // Get all <item> tags.
-            NodeList nl = doc.getElementsByTagName("item");
-            int length = nl.getLength();
+			// Parse the xml
+			Document doc = db.parse(is);
+			is.close();
+			doc.getDocumentElement().normalize();
 
-            for (int i = 0; i < length; i++) {
-                Node currentNode = nl.item(i);
-                RSSItem _item = new RSSItem();
+			// Get all <item> tags.
+			NodeList nl = doc.getElementsByTagName("item");
+			int length = nl.getLength();
 
-                NodeList nchild = currentNode.getChildNodes();
-                int clength = nchild.getLength();
+			for (int i = 0; i < length; i++) {
+				Node currentNode = nl.item(i);
+				RSSItem _item = new RSSItem();
 
-                // Get the required elements from each Item
-                for (int j = 0; j < clength; j = j + 1) {
+				NodeList nchild = currentNode.getChildNodes();
+				int clength = nchild.getLength();
 
-                    Node thisNode = nchild.item(j);
-                    String theString = null;
+				// Get the required elements from each Item
+				for (int j = 0; j < clength; j = j + 1) {
 
-                    if (thisNode != null && thisNode.getFirstChild() != null) {
-                        theString = nchild.item(j).getFirstChild()
-                                .getNodeValue();
-                    }
-                    if (theString != null) {
-                        String nodeName = thisNode.getNodeName();
-                        if ("title".equals(nodeName)) {
-                            // Node name is equals to 'title' so set the Node
-                            // value to the Title in the RSSItem.
-                            _item.setTitle(theString);
-                        }
+					Node thisNode = nchild.item(j);
+					String theString = null;
 
-                        else if ("description".equals(nodeName) || "content:encoded".equals(nodeName)) {
-                            _item.setDescription(theString);
+					if (thisNode != null && thisNode.getFirstChild() != null) {
+						theString = nchild.item(j).getFirstChild()
+								.getNodeValue();
+					}
+					if (theString != null) {
+						String nodeName = thisNode.getNodeName();
+						if ("title".equals(nodeName)) {
+							// Node name is equals to 'title' so set the Node
+							// value to the Title in the RSSItem.
+							_item.setTitle(theString);
+						}
 
-                            // Parse the html description to get the image url
-                            String html = theString;
-                            org.jsoup.nodes.Document docHtml = Jsoup
-                                    .parse(html);
-                            Elements imgEle = docHtml.select("img");
-                            _item.setImage(imgEle.attr("src"));
-                        }
+						else if ("description".equals(nodeName)
+								|| "content:encoded".equals(nodeName)) {
+							_item.setDescription(theString);
 
-                        else if ("pubDate".equals(nodeName)) {
+							// Parse the html description to get the image url
+							String html = theString;
+							org.jsoup.nodes.Document docHtml = Jsoup
+									.parse(html);
+							Elements imgEle = docHtml.select("img");
+							_item.setImage(imgEle.attr("src"));
+						} else if ("link".equals(nodeName)) {
+							_item.setLink(theString);
 
-                            // We replace the plus and zero's in the date with
-                            // empty string
-                            String formatedDate = theString.replace(" +0000",
-                                    "");
-                            _item.setDate(formatedDate);
-                        }
+						} else if ("pubDate".equals(nodeName)) {
 
-                    }
-                }
+							// We replace the plus and zero's in the date with
+							// empty string
+							String formatedDate = theString.replace(" +0000",
+									"");
+							_item.setDate(formatedDate);
+						} else if ("author".equals(nodeName)
+								|| "dc:creator".equals(nodeName)) {
+							_item.setAuthor(theString);
+						}
 
-                // add item to the list
-                _feed.addItem(_item);
-            }
+					}
+				}
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+				// add item to the list
+				_feed.addItem(_item);
+			}
 
-        // Return the final feed once all the Items are added to the RSSFeed
-        // Object(_feed).
-        return _feed;
-    }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// Return the final feed once all the Items are added to the RSSFeed
+		// Object(_feed).
+		return _feed;
+	}
 
 }

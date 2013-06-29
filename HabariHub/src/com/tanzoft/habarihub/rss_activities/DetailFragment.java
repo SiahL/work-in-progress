@@ -65,7 +65,7 @@ public class DetailFragment extends SherlockFragment {
         // Set the views
         title.setText(fFeed.getItem(fPos).getTitle());
         desc.loadDataWithBaseURL("http://www.tanzoft.com/", fFeed.getItem(fPos)
-                .getDescription(), "text/html", "UTF-8", null);
+                .getDescription(), "text/html", "utf-8", null);
 
         return view;
     }
@@ -83,10 +83,10 @@ public class DetailFragment extends SherlockFragment {
 
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "RSS Reader");
-        String shareBody = fFeed.getItem(fPos).getTitle() + "\n"
-                + Html.fromHtml(fFeed.getItem(fPos).getDescription());
-        shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Shared from Habari Hub Android App:\n");
+        String shareLink = fFeed.getItem(fPos).getTitle() + "\n"
+                + Html.fromHtml(fFeed.getItem(fPos).getLink());
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareLink);
 
         // Set the share intent
         mShareActionProvider.setShareIntent(shareIntent);

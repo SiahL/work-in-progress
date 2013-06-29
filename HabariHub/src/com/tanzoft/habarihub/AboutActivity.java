@@ -72,34 +72,36 @@ public class AboutActivity extends SherlockActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-        case android.R.id.home:
-            // app icon in action bar clicked; finish activity to go home
+        int itemId = item.getItemId();
+		if (itemId == android.R.id.home) {
+			// app icon in action bar clicked; finish activity to go home
             finish();
-            return true;
-
-            // rate application
-        case R.id.rate:
-            String myUrl = "https://play.google.com/store/apps/details?id=com.tanzoft.habarihub";
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(myUrl)));
-            break;
-
-        case R.id.report:
-            Intent emailIntent = new Intent(Intent.ACTION_SEND);
-            /*
+			return true;
+		} else if (itemId == R.id.rate) {
+			String myUrl = "https://play.google.com/store/apps/details?id=com.tanzoft.habarihub";
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(myUrl)));
+		} else if (itemId == R.id.report) {
+			Intent emailIntent = new Intent(Intent.ACTION_SEND);
+			/*
              * The intent does not have a URI, so declare the "text/plain" MIME
              * type, emailIntent.setType("text/plain");
              */
             emailIntent.setType(HTTP.PLAIN_TEXT_TYPE);
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {
+			emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {
                     "damas@tanzoft.com", "cmeo226@yahoo.com",
                     "pkinasha@gmail.com", "igotti47@gmail.com" }); // recipients
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Habari Hub Error");
-            startActivity(Intent.createChooser(emailIntent,
+			emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Habari Hub Error");
+			startActivity(Intent.createChooser(emailIntent,
                     "Choose Email Client"));
-            break;
-        }
+		} else if (itemId == R.id.share) {
+			Intent share = new Intent("android.intent.action.SEND");
+			share.setType("text/plain");
+			share.putExtra("android.intent.extra.TEXT",
+					"https://play.google.com/store/apps/details?id=com.tanzoft.habarihub");
+			share.putExtra("android.intent.extra.SUBJECT",
+					"Try Habari Hub Android app!");
+			startActivity(Intent.createChooser(share, "Share Habari Hub!!"));
+		}
         return super.onOptionsItemSelected(item);
     }
 
