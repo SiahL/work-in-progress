@@ -79,6 +79,7 @@ public class DOMParser {
 									.parse(html);
 							Elements imgEle = docHtml.select("img");
 							_item.setImage(imgEle.attr("src"));
+							
 						} else if ("link".equals(nodeName)) {
 							_item.setLink(theString);
 

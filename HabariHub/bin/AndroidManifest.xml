@@ -10,7 +10,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -57,20 +57,24 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.tanzoft.habarihub.rss_activities.DetailActivity"
-            android:screenOrientation="portrait"
-            android:hardwareAccelerated="true" />
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.tanzoft.habarihub.rss_activities.DetailFragment"
-            android:screenOrientation="portrait"
-            android:hardwareAccelerated="true" />
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.tanzoft.habarihub.ui.CardsUI"
             android:screenOrientation="portrait" />
-        
         <activity
             android:name="com.tanzoft.habarihub.grid.GridActivity"
             android:screenOrientation="portrait" />
-    
+        <activity
+            android:name="com.tanzoft.habarihub.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tanzoft.habarihub.expandable_list.GroupedList"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

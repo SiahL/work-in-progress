@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="update_frequency">
+        <item>2 hours</item>
+        <item>Every Hour</item>
+        <item>45 Minutes</item>
+        <item>30 Minutes</item>
+        <item>15 Minutes</item>
+    </string-array>
+    
+</resources>

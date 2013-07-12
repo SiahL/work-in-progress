@@ -51,8 +51,18 @@
                 android:gravity="left|center"
                 android:text="@string/button_github" />
 
+            <TextView
+                android:id="@+id/tvGitHub"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:hint="@string/about_github"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="15sp" />
+
             <Button
-                android:id="@+id/button_paypal"
+                android:id="@+id/button_experimental"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left|center"
@@ -64,12 +74,10 @@
                 android:layout_height="fill_parent"
                 android:layout_margin="5dp"
                 android:gravity="center"
-                android:hint="@string/about_donations"
+                android:hint="@string/about_experimental"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textSize="15sp" />
-
         </LinearLayout>
-
     </ScrollView>
 
 </LinearLayout>

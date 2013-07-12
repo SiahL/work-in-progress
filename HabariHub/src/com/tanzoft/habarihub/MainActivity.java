@@ -121,9 +121,21 @@ public class MainActivity extends SherlockActivity {
 
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int itemId = item.getItemId();
-		if (itemId == R.id.rate) {
-			String myUrl = "https://play.google.com/store/apps/details?id=com.tanzoft.habarihub";
-			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(myUrl)));
+		if (itemId == R.id.rate || itemId == R.id.update) {
+			try {
+				startActivity(new Intent(Intent.ACTION_VIEW,
+						Uri.parse("market://details?id="
+								+ "com.tanzoft.habarihub")));
+			} catch (android.content.ActivityNotFoundException anfe) {
+				startActivity(new Intent(
+						Intent.ACTION_VIEW,
+						Uri.parse("http://play.google.com/store/apps/details?id="
+								+ "com.tanzoft.habarihub")));
+			}
+		} else if (itemId == R.id.settings) {
+			Intent settings = new Intent(this,
+					com.tanzoft.habarihub.SettingsActivity.class);
+			startActivity(settings);
 		} else if (itemId == R.id.report) {
 			Intent emailIntent = new Intent(Intent.ACTION_SEND);
 			/*
@@ -146,7 +158,10 @@ public class MainActivity extends SherlockActivity {
 					"Try Habari Hub Android app!");
 			startActivity(Intent.createChooser(share, "Share Habari Hub!!"));
 
-		} else {
+		}
+
+		else {
+
 			return super.onOptionsItemSelected(item);
 		}
 

@@ -38,16 +38,16 @@ public class RadioActivity extends SherlockListActivity {
 				"http://198.105.215.28:8000/taarab.mp3" });
 		radioList.add(new String[] { "Bongo Radio", "Zilipendwa Channel",
 				"http://198.105.215.28:8000/zilipendwa.mp3" });
-		radioList.add(new String[] { "Swahili Talk Radio", "",
-				"http://174.36.1.92:5089/Live" });
 		radioList.add(new String[] { "East Africa Radio",
 				"Together Tunawakilisha", "http://173.192.70.138:8270" });
-		radioList.add(new String[] { "Radio One", "",
-				"http://78.129.232.75:8119" });
 		radioList.add(new String[] { "Radio Mbao", "",
 				"http://173.192.70.138:8040" });
+		radioList.add(new String[] { "Radio One", "",
+				"http://78.129.232.75:8119" });
 		radioList.add(new String[] { "Swahili Gospel Radio", "",
 				"http://108.178.13.122:8085" });
+		radioList.add(new String[] { "Swahili Talk Radio", "",
+				"http://174.36.1.92:5089/Live" });
 		radioList.add(new String[] { "Times FM", "Experience Africa",
 				"http://41.216.220.75:8000/Timesfm" });
 		/*
@@ -145,6 +145,10 @@ public class RadioActivity extends SherlockListActivity {
 			share.putExtra("android.intent.extra.SUBJECT",
 					"Try Habari Hub Android app!");
 			startActivity(Intent.createChooser(share, "Share Habari Hub!!"));
+		} else if (itemId == R.id.settings) {
+			Intent settings = new Intent(this,
+					com.tanzoft.habarihub.SettingsActivity.class);
+			startActivity(settings);
 		}
 		return super.onOptionsItemSelected(item);
 	}
