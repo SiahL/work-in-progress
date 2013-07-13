@@ -16,24 +16,25 @@ import com.actionbarsherlock.view.MenuItem;
 
 public class BlogsActivity extends SherlockListActivity {
 
-	String[] blogsList = { "Michuzi Blog", "MillardAyo", "Bongo 5",
-			"Cheka na Kitime", "Cheka Vichekesho", "DJ Choka", "Fununu Blog",
-			"Gospel Kitaa", "Kajuna Son", "Kijiwe cha Kitime", "King Kapita",
-			"Mpekuzi", "Soka in Bongo", "Wapenda Soka" };
+	String[] blogsList = { "Michuzi Blog", "MillardAyo",
+			"Cheka na Kitime", "Cheka Vichekesho", "DJ Choka",
+			"East African Herald", "Fununu Blog", "Gospel Kitaa", "Kajuna Son",
+			"Kijiwe cha Kitime", "King Kapita", "Mpekuzi", "Soka in Bongo",
+			"Wapenda Soka" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
 
 		setListAdapter(new ArrayAdapter<String>(BlogsActivity.this,
 				android.R.layout.simple_list_item_1, blogsList));
 
 		ActionBar actionBar = getSupportActionBar();
-		//actionBar.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+		// actionBar.setBackgroundDrawable(new
+		// ColorDrawable(Color.TRANSPARENT));
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		
+
 	}
 
 	@Override
@@ -61,14 +62,6 @@ public class BlogsActivity extends SherlockListActivity {
 			break;
 
 		case 2:
-			blogSite = "http://www.bongo5.com/feed/";
-			loadBlog = new Intent(BlogsActivity.this,
-					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
-			loadBlog.putExtra("site", blogSite);
-			startActivity(loadBlog);
-			break;
-
-		case 3:
 			blogSite = "http://www.chekanakitime.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -76,7 +69,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 4:
+		case 3:
 			blogSite = "http://www.chekavichekesho.wordpress.com/feed";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -84,8 +77,16 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 5:
+		case 4:
 			blogSite = "http://www.djchoka.blogspot.com/feeds/posts/default?alt=rss";
+			loadBlog = new Intent(BlogsActivity.this,
+					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+			loadBlog.putExtra("site", blogSite);
+			startActivity(loadBlog);
+			break;
+
+		case 5:
+			blogSite = "http://www.eastafricaherald.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
 			loadBlog.putExtra("site", blogSite);
