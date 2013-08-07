@@ -6,78 +6,20 @@
     android:orientation="vertical"
     tools:context=".AboutActivity" >
 
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        tools:ignore="UselessParent" >
+        android:layout_marginBottom="10dp"
+        android:text="@string/about_text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:ignore="ScrollViewSize" >
+     
+    <com.fima.cardsui.views.CardUI
+        android:id="@+id/about_cards"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:text="@string/about_title"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="@string/about_text"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <Button
-                android:id="@+id/button_developers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left|center"
-                android:text="@string/button_developers" />
-
-            <Button
-                android:id="@+id/button_github"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:drawableRight="@drawable/github"
-                android:gravity="left|center"
-                android:text="@string/button_github" />
-
-            <TextView
-                android:id="@+id/tvGitHub"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:hint="@string/about_github"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="15sp" />
-
-            <Button
-                android:id="@+id/button_experimental"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left|center"
-                android:text="@string/button_experimental" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:hint="@string/about_experimental"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="15sp" />
-        </LinearLayout>
-    </ScrollView>
+   
 
 </LinearLayout>

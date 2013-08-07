@@ -11,6 +11,7 @@ public class RSSItem implements Serializable {
 	private String _image = null;
 	private String _author = null;
 	private String _link = null;
+	private String _youtubeId = null;
 
 	void setTitle(String title) {
 		_title = title;
@@ -58,6 +59,13 @@ public class RSSItem implements Serializable {
 
 	public String getAuthor() {
 		return _author;
+	}
+	
+	public String getYoutubeId(){
+		
+		String id = _link.substring(_link.indexOf("=") + 1 , _link.indexOf("&") );
+		return id;
+		
 	}
 
 }

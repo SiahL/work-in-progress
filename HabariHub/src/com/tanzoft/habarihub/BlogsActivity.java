@@ -1,5 +1,11 @@
 package com.tanzoft.habarihub;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 import org.apache.http.protocol.HTTP;
 
 import android.content.Intent;
@@ -13,22 +19,34 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
+
+
 
 public class BlogsActivity extends SherlockListActivity {
 
-	String[] blogsList = { "Michuzi Blog", "MillardAyo",
-			"Cheka na Kitime", "Cheka Vichekesho", "DJ Choka",
-			"East African Herald", "Fununu Blog", "Gospel Kitaa", "Kajuna Son",
-			"Kijiwe cha Kitime", "King Kapita", "Mpekuzi", "Soka in Bongo",
-			"Wapenda Soka" };
+	ListView blogList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
-		setListAdapter(new ArrayAdapter<String>(BlogsActivity.this,
-				android.R.layout.simple_list_item_1, blogsList));
+		FadingActionBarHelper helper = new FadingActionBarHelper();
+		helper.actionBarBackground(R.drawable.ab_background)
+				.headerLayout(R.layout.list_header)
+				.contentLayout(R.layout.activity_my_listview);
+		setContentView(helper.createView(this));
+		helper.initActionBar(this);
+		
+		ListView blogList = (ListView) findViewById(android.R.id.list);
+		ArrayList<String> items = loadItems(R.raw.blogs);
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        blogList.setAdapter(adapter);
+
+		//setListAdapter(new ArrayAdapter<String>(BlogsActivity.this,
+		//		android.R.layout.simple_list_item_1, blogsList));
 
 		ActionBar actionBar = getSupportActionBar();
 		// actionBar.setBackgroundDrawable(new
@@ -36,6 +54,25 @@ public class BlogsActivity extends SherlockListActivity {
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
 	}
+	
+    /**
+     * @return A list of Strings read from the specified resource
+     */
+    private ArrayList<String> loadItems(int rawResourceId) {
+        try {
+            ArrayList<String> countries = new ArrayList<String>();
+            InputStream inputStream = getResources().openRawResource(rawResourceId);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                countries.add(line);
+            }
+            reader.close();
+            return countries;
+        } catch (IOException e) {
+            return null;
+        }
+    }
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -45,7 +82,7 @@ public class BlogsActivity extends SherlockListActivity {
 		Intent loadBlog;
 
 		switch (position) {
-		case 0:
+		case 1:
 			blogSite = "http://www.issamichuzi.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -53,7 +90,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 1:
+		case 2:
 			blogSite = "http://www.millardayo.com/feed/";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -61,7 +98,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 2:
+		case 3:
 			blogSite = "http://www.chekanakitime.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -69,7 +106,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 3:
+		case 4:
 			blogSite = "http://www.chekavichekesho.wordpress.com/feed";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -77,7 +114,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 4:
+		case 5:
 			blogSite = "http://www.djchoka.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -85,7 +122,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 5:
+		case 6:
 			blogSite = "http://www.eastafricaherald.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -93,7 +130,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 6:
+		case 7:
 			blogSite = "http://www.fununuhabarii.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -101,7 +138,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 7:
+		case 8:
 			blogSite = "http://www.gospelkitaa.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -109,7 +146,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 8:
+		case 9:
 			blogSite = "http://www.kajunason.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -117,7 +154,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 9:
+		case 10:
 			blogSite = "http://www.wanamuzikiwatanzania.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -125,7 +162,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 10:
+		case 11:
 			blogSite = "http://www.kingkapita.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -133,7 +170,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 11:
+		case 12:
 			blogSite = "http://www.freebongo.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -141,7 +178,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 12:
+		case 13:
 			blogSite = "http://www.sokainbongo.com/vikombe-vikubwa?format=feed&type=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -149,7 +186,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 13:
+		case 14:
 			blogSite = "http://www.wapendasoka.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);

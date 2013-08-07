@@ -72,6 +72,7 @@ public class ListActivity extends SherlockActivity {
 						DetailActivity.class);
 				intent.putExtras(bundle);
 				intent.putExtra("pos", pos);
+				
 				startActivity(intent);
 
 			}

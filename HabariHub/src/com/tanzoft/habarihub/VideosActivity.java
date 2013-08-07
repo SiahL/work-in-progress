@@ -42,7 +42,7 @@ public class VideosActivity extends SherlockListActivity {
 		case 0:
 			url = "http://www.youtube.com/rss/user/MkasiEATV/videos.rss";
 			load = new Intent(VideosActivity.this,
-					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
 			load.putExtra("site", url);
 			startActivity(load);
 			break;
@@ -50,7 +50,7 @@ public class VideosActivity extends SherlockListActivity {
 		case 1:
 			url = "http://www.youtube.com/rss/user/ITVTZ/videos.rss";
 			load = new Intent(VideosActivity.this,
-					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
 			load.putExtra("site", url);
 			startActivity(load);
 			break;
@@ -58,7 +58,7 @@ public class VideosActivity extends SherlockListActivity {
 		case 2:
 			url = "http://www.youtube.com/rss/user/swahiliwood/videos.rss";
 			load = new Intent(VideosActivity.this,
-					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
 			load.putExtra("site", url);
 			startActivity(load);
 			break;
@@ -66,7 +66,7 @@ public class VideosActivity extends SherlockListActivity {
 		case 3:
 			url = "http://www.youtube.com/rss/user/sporahshow/videos.rss";
 			load = new Intent(VideosActivity.this,
-					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
 			load.putExtra("site", url);
 			startActivity(load);
 			break;
@@ -74,7 +74,7 @@ public class VideosActivity extends SherlockListActivity {
 		case 4:
 			url = "http://www.youtube.com/rss/user/djkvelli/videos.rss";
 			load = new Intent(VideosActivity.this,
-					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
 			load.putExtra("site", url);
 			startActivity(load);
 			break;
@@ -82,7 +82,7 @@ public class VideosActivity extends SherlockListActivity {
 		case 5:
 			url = "http://www.youtube.com/rss/user/Cheusidawa/videos.rss";
 			load = new Intent(VideosActivity.this,
-					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
 			load.putExtra("site", url);
 			startActivity(load);
 			break;
@@ -90,7 +90,7 @@ public class VideosActivity extends SherlockListActivity {
 		case 6:
 			url = "http://www.youtube.com/rss/user/TheMasoudkipanya/videos.rss";
 			load = new Intent(VideosActivity.this,
-					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
 			load.putExtra("site", url);
 			startActivity(load);
 			break;
@@ -98,7 +98,7 @@ public class VideosActivity extends SherlockListActivity {
 		case 7:
 			url = "http://www.youtube.com/rss/user/shaffihdauda/videos.rss";
 			load = new Intent(VideosActivity.this,
-					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
 			load.putExtra("site", url);
 			startActivity(load);
 			break;

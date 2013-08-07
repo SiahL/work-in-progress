@@ -23,7 +23,7 @@ import com.tanzoft.habarihub.parser.RSSFeed;
 
 public class SplashActivity extends SherlockActivity {
 
-	String RSSFEEDURL;
+	public String RSSFEEDURL;
 	RSSFeed feed;
 	String fileName;
 
@@ -72,7 +72,7 @@ public class SplashActivity extends SherlockActivity {
 						Toast.LENGTH_LONG);
 				toast.show();
 				feed = ReadFeed(fileName);
-				startLisActivity(feed);
+				startListActivity(feed);
 			}
 
 		} else {
@@ -85,7 +85,7 @@ public class SplashActivity extends SherlockActivity {
 	}
 
 	
-	private void startLisActivity(RSSFeed feed) {
+	private void startListActivity(RSSFeed feed) {
 
 		Bundle bundle = new Bundle();
 		bundle.putSerializable("feed", feed);
@@ -136,7 +136,7 @@ public class SplashActivity extends SherlockActivity {
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
 
-			startLisActivity(feed);
+			startListActivity(feed);
 		}
 
 	}

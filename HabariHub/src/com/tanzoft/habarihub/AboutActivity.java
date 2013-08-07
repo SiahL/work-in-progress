@@ -12,12 +12,15 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.fima.cardsui.views.CardUI;
+import com.tanzoft.habarihub.ui.MyPlayCard;
 
 public class AboutActivity extends SherlockActivity {
 
 	Button developers;
 	Button github;
 	Button experimental;
+	CardUI aboutCards;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,45 +28,81 @@ public class AboutActivity extends SherlockActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
 
-		developers = (Button) findViewById(R.id.button_developers);
-		github = (Button) findViewById(R.id.button_github);
-		experimental = (Button) findViewById(R.id.button_experimental);
+		// cards UI
+		aboutCards = (CardUI) findViewById(R.id.about_cards);
+		aboutCards.setSwipeable(false);
 
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		// open a web browser to developer's google+ page when button is pressed
+
+		// CardStack dev = new CardStack();
+		// dev.setTitle("Developers Info and Stuffs");
+		// aboutCards.addStack(dev);
+
+		MyPlayCard developers = new MyPlayCard("Developers",
+				"People behind this app", "#e00707", "#e00707", false, false);
+
 		developers.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent dev = new Intent(AboutActivity.this,
+				Intent devs = new Intent(AboutActivity.this,
 						com.tanzoft.habarihub.Developers.class);
-				startActivity(dev);
+				startActivity(devs);
 
 			}
 		});
 
-		// open web browser to github source page
+		aboutCards.addCard(developers);
+
+		MyPlayCard github = new MyPlayCard("Source Code at Github",
+				"Fork me at github", "#e00707", "#e00707", false, false);
+
 		github.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// url to github source page
-				String url = "https://github.com/tanzoft";
+				String url = "https://github.com/tanzoft/work-in-progress";
 				Intent gh = new Intent(Intent.ACTION_VIEW);
 				gh.setData(Uri.parse(url));
 				startActivity(gh);
 			}
 		});
 
+		aboutCards.addCard(github);
+
+		MyPlayCard experimental = new MyPlayCard(
+				"Experimental Stuffs",
+				"A sneak peak of what it may look like int the future, includes Radio, and new List View",
+				"#e00707", "#e00707", false, false);
 		experimental.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent test = new Intent(AboutActivity.this, com.tanzoft.habarihub.expandable_list.GroupedList.class);
+				Intent test = new Intent(AboutActivity.this,
+						com.tanzoft.habarihub.expandable_list.GroupedList.class);
 				startActivity(test);
+
 			}
 		});
+
+		aboutCards.addCard(experimental);
+
+		MyPlayCard credits = new MyPlayCard("Credits", "Our special thanks",
+				"#e00707", "#e00707", false, false);
+		credits.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent cred = new Intent(AboutActivity.this, com.tanzoft.habarihub.CreditsActivity.class);
+				startActivity(cred);
+				
+			}
+		});
+		aboutCards.addCard(credits);
+
+		aboutCards.refresh();
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
