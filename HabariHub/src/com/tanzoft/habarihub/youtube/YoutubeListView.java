@@ -71,7 +71,9 @@ public class YoutubeListView extends SherlockActivity {
 						YoutubeActivity.class);
 				intent.putExtras(bundle);
 				//intent.putExtra("pos", pos);
+				intent.putExtra("title", feed.getItem(pos).getTitle());
 				intent.putExtra("id", feed.getItem(pos).getYoutubeId());
+				intent.putExtra("desc", feed.getItem(pos).getDate());
 
 				startActivity(intent);
 

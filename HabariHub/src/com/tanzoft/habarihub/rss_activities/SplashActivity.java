@@ -138,6 +138,10 @@ public class SplashActivity extends SherlockActivity {
 
 			startListActivity(feed);
 		}
+		
+		public void cancelLoading(){
+			
+		}
 
 	}
 

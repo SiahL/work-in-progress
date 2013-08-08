@@ -103,13 +103,13 @@ public class YoutubeSplashActivity extends SherlockActivity {
 	/*
 	 
 	 //enable this method to launc activity with cards UI instead of list view, remember to comment out above method
-	   private void startLisActivity(RSSFeed feed) {
+	   private void startListActivity(RSSFeed feed) {
 
 	        Bundle bundle = new Bundle();
 	        bundle.putSerializable("feed", feed);
 
 	        // launch List activity
-	        Intent intent = new Intent(SplashActivity.this, com.tanzoft.habarihub.ui.CardsUI.class);
+	        Intent intent = new Intent(YoutubeSplashActivity.this, com.tanzoft.habarihub.ui.CardsUI.class);
 	        intent.putExtras(bundle);
 	        startActivity(intent);
 

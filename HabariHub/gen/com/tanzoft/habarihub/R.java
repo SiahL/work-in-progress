@@ -1119,21 +1119,22 @@ containing a value of this type.
         public static final int mwm_small=0x7f020085;
         public static final int navigation_collapse=0x7f020086;
         public static final int navigation_expand=0x7f020087;
-        public static final int newton=0x7f020088;
-        public static final int paypal=0x7f020089;
-        public static final int philip=0x7f02008a;
-        public static final int pinstripes=0x7f02008b;
-        public static final int radiopauseicon=0x7f02008c;
-        public static final int radioplayicon=0x7f02008d;
-        public static final int radiostopicon=0x7f02008e;
-        public static final int rating=0x7f02008f;
-        public static final int selectable_background_cardbank=0x7f020090;
-        public static final int simeon=0x7f020091;
-        public static final int tanzania_map=0x7f020092;
-        public static final int tanzoft=0x7f020093;
-        public static final int titlebarimage=0x7f020094;
-        public static final int top_shadow=0x7f020095;
-        public static final int tz=0x7f020096;
+        public static final int newsp=0x7f020088;
+        public static final int newton=0x7f020089;
+        public static final int paypal=0x7f02008a;
+        public static final int philip=0x7f02008b;
+        public static final int pinstripes=0x7f02008c;
+        public static final int radiopauseicon=0x7f02008d;
+        public static final int radioplayicon=0x7f02008e;
+        public static final int radiostopicon=0x7f02008f;
+        public static final int rating=0x7f020090;
+        public static final int selectable_background_cardbank=0x7f020091;
+        public static final int simeon=0x7f020092;
+        public static final int tanzania_map=0x7f020093;
+        public static final int tanzoft=0x7f020094;
+        public static final int titlebarimage=0x7f020095;
+        public static final int top_shadow=0x7f020096;
+        public static final int tz=0x7f020097;
     }
     public static final class id {
         public static final int ScrollView1=0x7f060049;
@@ -1177,7 +1178,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f060013;
         public static final int abs__title=0x7f06001b;
         public static final int abs__up=0x7f06000b;
-        public static final int arrow=0x7f06005b;
+        public static final int arrow=0x7f06005c;
         public static final int cardContent=0x7f060056;
         public static final int cardsview=0x7f060035;
         public static final int cbAutoUpdate=0x7f06003f;
@@ -1185,7 +1186,7 @@ containing a value of this type.
         public static final int childImage=0x7f06004b;
         public static final int code_credits=0x7f060037;
         public static final int contentLayout=0x7f060045;
-        public static final int date=0x7f06005c;
+        public static final int date=0x7f06005d;
         public static final int desc=0x7f06004e;
         public static final int description=0x7f060043;
         public static final int disableHome=0x7f060009;
@@ -1198,11 +1199,12 @@ containing a value of this type.
         public static final int fab__listview_background=0x7f060051;
         public static final int fab__scroll_view=0x7f060052;
         public static final int homeAsUp=0x7f060006;
-        public static final int imageView=0x7f06005e;
+        public static final int imageView=0x7f060060;
         public static final int imageView1=0x7f060038;
         public static final int image_header=0x7f060059;
+        public static final int image_header_light=0x7f06005a;
         public static final int layout_drawer=0x7f060034;
-        public static final int linearLayout1=0x7f06005f;
+        public static final int linearLayout1=0x7f060061;
         public static final int listMode=0x7f060002;
         public static final int listView=0x7f060047;
         public static final int normal=0x7f060001;
@@ -1211,16 +1213,16 @@ containing a value of this type.
         public static final int pausebutton=0x7f06003c;
         public static final int placeholder=0x7f060055;
         public static final int playbutton=0x7f06003d;
-        public static final int progressBar=0x7f060060;
-        public static final int rate=0x7f060066;
-        public static final int refresh_option=0x7f060063;
+        public static final int progressBar=0x7f060062;
+        public static final int rate=0x7f060068;
+        public static final int refresh_option=0x7f060065;
         public static final int relativeLayout1=0x7f060039;
         public static final int relativeLayout2=0x7f06003b;
-        public static final int report=0x7f060065;
+        public static final int report=0x7f060067;
         public static final int sUpdateFrequency=0x7f060040;
-        public static final int settings=0x7f060068;
-        public static final int share=0x7f060064;
-        public static final int share_option=0x7f060062;
+        public static final int settings=0x7f06006a;
+        public static final int share=0x7f060066;
+        public static final int share_option=0x7f060064;
         public static final int showCustom=0x7f060008;
         public static final int showHome=0x7f060005;
         public static final int showTitle=0x7f060007;
@@ -1232,15 +1234,16 @@ containing a value of this type.
         public static final int sv=0x7f06004d;
         public static final int tabMode=0x7f060003;
         public static final int tableLayout=0x7f06004a;
-        public static final int textView=0x7f060061;
+        public static final int textView=0x7f060063;
         public static final int textView1=0x7f06003a;
         public static final int textView2=0x7f060032;
-        public static final int thumb=0x7f06005a;
+        public static final int thumb=0x7f06005b;
         public static final int title=0x7f060042;
-        public static final int update=0x7f060067;
+        public static final int update=0x7f060069;
         public static final int useLogo=0x7f060004;
+        public static final int vid_title=0x7f06005f;
         public static final int wrap_content=0x7f060000;
-        public static final int yPlayerView=0x7f06005d;
+        public static final int yPlayerView=0x7f06005e;
     }
     public static final class integer {
         public static final int abs__max_action_buttons=0x7f0a0000;
@@ -1295,11 +1298,12 @@ containing a value of this type.
         public static final int item_play_card_empty_first=0x7f03002e;
         public static final int item_stack=0x7f03002f;
         public static final int list_header=0x7f030030;
-        public static final int list_item=0x7f030031;
-        public static final int player_view=0x7f030032;
-        public static final int sherlock_spinner_dropdown_item=0x7f030033;
-        public static final int sherlock_spinner_item=0x7f030034;
-        public static final int splash=0x7f030035;
+        public static final int list_header_light=0x7f030031;
+        public static final int list_item=0x7f030032;
+        public static final int player_view=0x7f030033;
+        public static final int sherlock_spinner_dropdown_item=0x7f030034;
+        public static final int sherlock_spinner_item=0x7f030035;
+        public static final int splash=0x7f030036;
     }
     public static final class menu {
         public static final int activity_desc=0x7f0e0000;
@@ -1308,6 +1312,7 @@ containing a value of this type.
     }
     public static final class raw {
         public static final int blogs=0x7f050000;
+        public static final int magazeti=0x7f050001;
     }
     public static final class string {
         public static final int about_github=0x7f0b0022;

@@ -1,5 +1,11 @@
 package com.tanzoft.habarihub;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 import org.apache.http.protocol.HTTP;
 
 import android.content.Intent;
@@ -7,29 +13,64 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
 
 public class MagazetiActivity extends SherlockListActivity {
 
-	String[] magazeti = { "Business Times", "Daily News", "Habari Leo",
-			"Magazetini", "Mtanzania", "Mwananchi", "Raia Mwema",
-			"The East African", "The Habari" };
+//	String[] magazeti = { "Business Times", "Daily News", "Habari Leo",
+//			"Magazetini", "Mtanzania", "Mwananchi", "Raia Mwema",
+//			"The East African", "The Habari" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setListAdapter(new ArrayAdapter<String>(MagazetiActivity.this,
-				android.R.layout.simple_list_item_1, magazeti));
+		
+		FadingActionBarHelper helper = new FadingActionBarHelper();
+		helper.actionBarBackground(R.drawable.ab_background)
+				.headerLayout(R.layout.list_header_light)
+				.contentLayout(R.layout.activity_my_listview);
+		setContentView(helper.createView(this));
+		helper.initActionBar(this);
+		
+		ListView magazeti = (ListView) findViewById(android.R.id.list);
+		ArrayList<String> items = loadItems(R.raw.magazeti);
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        magazeti.setAdapter(adapter);
+		
+		//setListAdapter(new ArrayAdapter<String>(MagazetiActivity.this,
+			//	android.R.layout.simple_list_item_1, magazeti));
 
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 	}
+	
+	   /**
+     * @return A list of Strings read from the specified resource
+     */
+    private ArrayList<String> loadItems(int rawResourceId) {
+        try {
+            ArrayList<String> countries = new ArrayList<String>();
+            InputStream inputStream = getResources().openRawResource(rawResourceId);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                countries.add(line);
+            }
+            reader.close();
+            return countries;
+        } catch (IOException e) {
+            return null;
+        }
+    }
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -40,7 +81,7 @@ public class MagazetiActivity extends SherlockListActivity {
 
 		switch (position) {
 
-		case 0:
+		case 1:
 			url = "http://www.businesstimes.co.tz/index.php?format=feed&type=rss";
 			load = new Intent(MagazetiActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -48,7 +89,7 @@ public class MagazetiActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 1:
+		case 2:
 			url = "http://www.dailynews.co.tz/index.php/local-news?format=feed&type=rss";
 			load = new Intent(MagazetiActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -56,7 +97,7 @@ public class MagazetiActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 2:
+		case 3:
 			url = "http://www.habarileo.co.tz/index.php/habari-za-kitaifa?format=feed&type=rss";
 			load = new Intent(MagazetiActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -64,7 +105,7 @@ public class MagazetiActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 3:
+		case 4:
 			url = "http://www.magazetini.com/feed";
 			load = new Intent(MagazetiActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -72,7 +113,7 @@ public class MagazetiActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 4:
+		case 5:
 			url = "http://mtanzania.co.tz/index.php?format=feed&type=rss";
 			load = new Intent(MagazetiActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -80,7 +121,7 @@ public class MagazetiActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 5:
+		case 6:
 			url = "http://www.mwananchi.co.tz/-/1597570/1723258/-/view/asFeed/-/4a0vxjz/-/index.xml";
 			load = new Intent(MagazetiActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -88,7 +129,7 @@ public class MagazetiActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 6:
+		case 7:
 			url = "http://www.raiamwema.co.tz/rss.xml";
 			load = new Intent(MagazetiActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -96,7 +137,7 @@ public class MagazetiActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 7:
+		case 8:
 			url = "http://www.theeastafrican.co.ke/-/2456/2456/-/view/asFeed/-/13blr5d/-/index.xml";
 			load = new Intent(MagazetiActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -104,7 +145,7 @@ public class MagazetiActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 8:
+		case 9:
 			url = "http://www.thehabari.com/feed";
 			load = new Intent(MagazetiActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
