@@ -22,7 +22,8 @@ public class YoutubeActivity extends YouTubeBaseActivity implements
 	private TextView title;
 	String _id = null;
 	String _title = null;
-	private String DEVKEY = "AIzaSyB8jE4N7zradRYHH-9ZT_7JJZfMXJjG5dk";
+	private static final String DEVKEY = "AIzaSyB8jE4N7zradRYHH-9ZT_7JJZfMXJjG5dk";
+	private static final int RECOVERY_DIALOG_REQUEST = 1;
 
 	@Override
 	protected void onCreate(Bundle onSavedInstance) {
@@ -48,9 +49,16 @@ public class YoutubeActivity extends YouTubeBaseActivity implements
 
 	@Override
 	public void onInitializationFailure(Provider arg0,
-			YouTubeInitializationResult arg1) {
+			YouTubeInitializationResult errorReason) {
+		
+	    if (errorReason.isUserRecoverableError()) {
+	        errorReason.getErrorDialog(this, RECOVERY_DIALOG_REQUEST).show();
+	      } else {
+	        String errorMessage = String.format(getString(R.string.error_player), errorReason.toString());
+	        Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
+	      }
 
-		Toast.makeText(this, "Failed to lunch", 100).show();
+		//Toast.makeText(this, "Failed to launch, make sure you have youtube app is installed", 100).show();
 
 	}
 
@@ -61,6 +69,7 @@ public class YoutubeActivity extends YouTubeBaseActivity implements
 			player.cueVideo(_id);
 		}
 	}
+
 
 	public void onPause() {
 		super.onPause();

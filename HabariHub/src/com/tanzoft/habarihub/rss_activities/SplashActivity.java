@@ -30,12 +30,12 @@ public class SplashActivity extends SherlockActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		Bundle b = getIntent().getExtras();
-        RSSFEEDURL = (String) b.get("site");
+		RSSFEEDURL = (String) b.get("site");
 
 		setContentView(R.layout.splash);
-		
+
 		fileName = "TDRSSFeed.td";
 
 		File feedFile = getBaseContext().getFileStreamPath(fileName);
@@ -84,7 +84,6 @@ public class SplashActivity extends SherlockActivity {
 
 	}
 
-	
 	private void startListActivity(RSSFeed feed) {
 
 		Bundle bundle = new Bundle();
@@ -98,25 +97,24 @@ public class SplashActivity extends SherlockActivity {
 		// kill this activity
 		finish();
 
-	} 
-	
+	}
+
 	/*
-	 
-	 //enable this method to launc activity with cards UI instead of list view, remember to comment out above method
-	   private void startLisActivity(RSSFeed feed) {
-
-	        Bundle bundle = new Bundle();
-	        bundle.putSerializable("feed", feed);
-
-	        // launch List activity
-	        Intent intent = new Intent(SplashActivity.this, com.tanzoft.habarihub.ui.CardsUI.class);
-	        intent.putExtras(bundle);
-	        startActivity(intent);
-
-	        // kill this activity
-	        finish();
-
-	    } */
+	 * 
+	 * //enable this method to launc activity with cards UI instead of list
+	 * view, remember to comment out above method private void
+	 * startLisActivity(RSSFeed feed) {
+	 * 
+	 * Bundle bundle = new Bundle(); bundle.putSerializable("feed", feed);
+	 * 
+	 * // launch List activity Intent intent = new Intent(SplashActivity.this,
+	 * com.tanzoft.habarihub.ui.CardsUI.class); intent.putExtras(bundle);
+	 * startActivity(intent);
+	 * 
+	 * // kill this activity finish();
+	 * 
+	 * }
+	 */
 
 	private class AsyncLoadXMLFeed extends AsyncTask<Void, Void, Void> {
 
@@ -130,7 +128,7 @@ public class SplashActivity extends SherlockActivity {
 				WriteFeed(feed);
 			return null;
 
-		} 
+		}
 
 		@Override
 		protected void onPostExecute(Void result) {
@@ -139,8 +137,9 @@ public class SplashActivity extends SherlockActivity {
 			startListActivity(feed);
 		}
 		
-		public void cancelLoading(){
+		protected void cancelTask(){
 			
+			cancel(true);
 		}
 
 	}
@@ -204,10 +203,15 @@ public class SplashActivity extends SherlockActivity {
 		return _feed;
 
 	}
+
+	public void onPause() {
+		super.onPause();
+		finish();
+	}
 	
-	public void onPause(){
-	    super.onPause();
-	    finish();
+	public void onStop(){
+		super.onStop();
+		finish();
 	}
 
 }

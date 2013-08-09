@@ -6,7 +6,7 @@
         android:title="@string/menu_share"/>
     <item
         android:id="@+id/report"
-        android:icon="@drawable/action_report"
+        android:icon="@drawable/menu_error"
         android:title="@string/menu_report"/>
     <item
         android:id="@+id/rate"

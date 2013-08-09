@@ -97,9 +97,9 @@ public class BlogsActivity extends SherlockListActivity {
 			loadBlog.putExtra("site", blogSite);
 			startActivity(loadBlog);
 			break;
-
+			
 		case 3:
-			blogSite = "http://www.chekanakitime.blogspot.com/feeds/posts/default?alt=rss";
+			blogSite = "http://www.8020fashionsblog.com/feed/";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
 			loadBlog.putExtra("site", blogSite);
@@ -107,7 +107,7 @@ public class BlogsActivity extends SherlockListActivity {
 			break;
 
 		case 4:
-			blogSite = "http://www.chekavichekesho.wordpress.com/feed";
+			blogSite = "http://www.chekanakitime.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
 			loadBlog.putExtra("site", blogSite);
@@ -163,14 +163,6 @@ public class BlogsActivity extends SherlockListActivity {
 			break;
 
 		case 11:
-			blogSite = "http://www.kingkapita.blogspot.com/feeds/posts/default?alt=rss";
-			loadBlog = new Intent(BlogsActivity.this,
-					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
-			loadBlog.putExtra("site", blogSite);
-			startActivity(loadBlog);
-			break;
-
-		case 12:
 			blogSite = "http://www.freebongo.blogspot.com/feeds/posts/default?alt=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -178,7 +170,7 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 13:
+		case 12:
 			blogSite = "http://www.sokainbongo.com/vikombe-vikubwa?format=feed&type=rss";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
@@ -186,8 +178,16 @@ public class BlogsActivity extends SherlockListActivity {
 			startActivity(loadBlog);
 			break;
 
-		case 14:
+		case 13:
 			blogSite = "http://www.wapendasoka.blogspot.com/feeds/posts/default?alt=rss";
+			loadBlog = new Intent(BlogsActivity.this,
+					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
+			loadBlog.putExtra("site", blogSite);
+			startActivity(loadBlog);
+			break;
+			
+		case 14:
+			blogSite = "http://www.bongoelectronics.com/feed/";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
 			loadBlog.putExtra("site", blogSite);

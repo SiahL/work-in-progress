@@ -8,12 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
@@ -25,23 +20,12 @@ import com.tanzoft.habarihub.ui.MyPlayCard;
 public class MainActivity extends SherlockActivity {
 
 	private CardUI mCardView;
-	private ListView mSideList;
-	private String[] mCategories;
-	private DrawerLayout mDrawer;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_cards);
-
-		mCategories = getResources().getStringArray(R.array.categories);
-		mSideList = (ListView) findViewById(R.id.drawer_list);
-		mDrawer = (DrawerLayout) findViewById(R.id.layout_drawer);
-
-		mSideList.setAdapter(new ArrayAdapter<String>(this,
-				R.layout.drawer_item, mCategories));
-		mDrawer.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-		mSideList.setOnItemClickListener(new DrawerItemClickListener());
 
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setHomeButtonEnabled(true);
@@ -198,68 +182,6 @@ public class MainActivity extends SherlockActivity {
 
 	public void onStop() {
 		super.onStop();
-	}
-
-	private class DrawerItemClickListener implements
-			ListView.OnItemClickListener {
-
-		@Override
-		public void onItemClick(AdapterView<?> arg0, View arg1, int position,
-				long id) {
-
-			selectPosition(position);
-
-		}
-
-		public void selectPosition(int position) {
-
-			switch (position) {
-			case 0:
-				Intent blogs = new Intent(MainActivity.this,
-						com.tanzoft.habarihub.BlogsActivity.class);
-				startActivity(blogs);
-				mSideList.setItemChecked(position, true);
-				break;
-
-			case 1:
-				Intent news = new Intent(MainActivity.this,
-						com.tanzoft.habarihub.MagazetiActivity.class);
-				startActivity(news);
-				mSideList.setItemChecked(position, true);
-				break;
-
-			case 2:
-				Intent radio = new Intent(MainActivity.this,
-						com.tanzoft.habarihub.RadioActivity.class);
-				startActivity(radio);
-				mSideList.setItemChecked(position, true);
-				break;
-
-			case 3:
-				Intent video = new Intent(MainActivity.this,
-						com.tanzoft.habarihub.VideosActivity.class);
-				startActivity(video);
-				mSideList.setItemChecked(position, true);
-				break;
-
-			case 4:
-				Intent about = new Intent(MainActivity.this,
-						com.tanzoft.habarihub.AboutActivity.class);
-				startActivity(about);
-				mSideList.setItemChecked(position, true);
-				break;
-
-			case 5:
-				Intent credit = new Intent(MainActivity.this,
-						com.tanzoft.habarihub.CreditsActivity.class);
-				startActivity(credit);
-				mSideList.setItemChecked(position, true);
-				break;
-
-			}
-			// mSideList.setItemChecked(position, true);
-		}
-
 	}
 
 	public void onDestroy() {

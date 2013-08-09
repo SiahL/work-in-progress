@@ -1,5 +1,11 @@
 package com.tanzoft.habarihub;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 import org.apache.http.protocol.HTTP;
 
 import android.content.Intent;
@@ -13,23 +19,57 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
 
 public class VideosActivity extends SherlockListActivity {
 
-	String[] channels = { "Mkasi", "ITV Tanzania", "SwahiliWood",
-			"Sporah Show", "Bongo Flava(Radio Mbao)", "Cheusi Dawa",
-			"Masoud Kipanya", "Shaffih Dauda" };
+//	String[] channels = { "Mkasi", "ITV Tanzania", "SwahiliWood",
+//			"Sporah Show", "Bongo Flava(Radio Mbao)", "Cheusi Dawa",
+//			"Masoud Kipanya", "Shaffih Dauda" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setListAdapter(new ArrayAdapter<String>(VideosActivity.this,
-				android.R.layout.simple_list_item_1, channels));
+		
+		FadingActionBarHelper helper = new FadingActionBarHelper();
+		helper.actionBarBackground(R.drawable.ab_background)
+				.headerLayout(R.layout.list_header)
+				.contentLayout(R.layout.activity_my_listview);
+		setContentView(helper.createView(this));
+		helper.initActionBar(this);
+		
+		ListView channels = (ListView) findViewById(android.R.id.list);
+		ArrayList<String> items = loadItems(R.raw.video);
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        channels.setAdapter(adapter);
+		
+		//setListAdapter(new ArrayAdapter<String>(VideosActivity.this,
+			//	android.R.layout.simple_list_item_1, channels));
 
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 	}
+	
+    /**
+     * @return A list of Strings read from the specified resource
+     */
+    private ArrayList<String> loadItems(int rawResourceId) {
+        try {
+            ArrayList<String> countries = new ArrayList<String>();
+            InputStream inputStream = getResources().openRawResource(rawResourceId);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                countries.add(line);
+            }
+            reader.close();
+            return countries;
+        } catch (IOException e) {
+            return null;
+        }
+    }
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
@@ -39,7 +79,7 @@ public class VideosActivity extends SherlockListActivity {
 
 		switch (position) {
 
-		case 0:
+		case 1:
 			url = "http://www.youtube.com/rss/user/MkasiEATV/videos.rss";
 			load = new Intent(VideosActivity.this,
 					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
@@ -47,7 +87,7 @@ public class VideosActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 1:
+		case 2:
 			url = "http://www.youtube.com/rss/user/ITVTZ/videos.rss";
 			load = new Intent(VideosActivity.this,
 					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
@@ -55,7 +95,7 @@ public class VideosActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 2:
+		case 3:
 			url = "http://www.youtube.com/rss/user/swahiliwood/videos.rss";
 			load = new Intent(VideosActivity.this,
 					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
@@ -63,7 +103,7 @@ public class VideosActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 3:
+		case 4:
 			url = "http://www.youtube.com/rss/user/sporahshow/videos.rss";
 			load = new Intent(VideosActivity.this,
 					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
@@ -71,7 +111,7 @@ public class VideosActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 4:
+		case 5:
 			url = "http://www.youtube.com/rss/user/djkvelli/videos.rss";
 			load = new Intent(VideosActivity.this,
 					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
@@ -79,7 +119,7 @@ public class VideosActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 5:
+		case 6:
 			url = "http://www.youtube.com/rss/user/Cheusidawa/videos.rss";
 			load = new Intent(VideosActivity.this,
 					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
@@ -87,7 +127,7 @@ public class VideosActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 6:
+		case 7:
 			url = "http://www.youtube.com/rss/user/TheMasoudkipanya/videos.rss";
 			load = new Intent(VideosActivity.this,
 					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);
@@ -95,7 +135,7 @@ public class VideosActivity extends SherlockListActivity {
 			startActivity(load);
 			break;
 
-		case 7:
+		case 8:
 			url = "http://www.youtube.com/rss/user/shaffihdauda/videos.rss";
 			load = new Intent(VideosActivity.this,
 					com.tanzoft.habarihub.youtube.YoutubeSplashActivity.class);

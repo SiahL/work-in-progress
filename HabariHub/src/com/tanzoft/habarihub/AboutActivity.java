@@ -72,22 +72,22 @@ public class AboutActivity extends SherlockActivity {
 
 		aboutCards.addCard(github);
 
-		MyPlayCard experimental = new MyPlayCard(
-				"Experimental Stuffs",
-				"A sneak peak of what it may look like int the future, includes Radio, and new List View",
-				"#e00707", "#e00707", false, false);
-		experimental.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent test = new Intent(AboutActivity.this,
-						com.tanzoft.habarihub.expandable_list.GroupedList.class);
-				startActivity(test);
-
-			}
-		});
-
-		aboutCards.addCard(experimental);
+//		MyPlayCard experimental = new MyPlayCard(
+//				"Experimental Stuffs",
+//				"A sneak peak of what it may look like int the future, includes Radio, and new List View[Disabled]",
+//				"#e00707", "#e00707", false, false);
+//		experimental.setOnClickListener(new View.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				Intent test = new Intent(AboutActivity.this,
+//						com.tanzoft.habarihub.expandable_list.GroupedList.class);
+//				startActivity(test);
+//
+//			}
+//		});
+//
+//		aboutCards.addCard(experimental);
 
 		MyPlayCard credits = new MyPlayCard("Credits", "Our special thanks",
 				"#e00707", "#e00707", false, false);

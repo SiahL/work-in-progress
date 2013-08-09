@@ -1,7 +1,6 @@
 package com.tanzoft.habarihub.rss_activities;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -47,14 +46,13 @@ public class DetailFragment extends SherlockFragment {
 		// Should call this to trigger Menu
 		setHasOptionsMenu(true);
 
-		final DetailFragment activity = this;
 		
 		// Initializer views
 		TextView title = (TextView) view.findViewById(R.id.title);
 		WebView desc = (WebView) view.findViewById(R.id.desc);
-		//WebChromeClient wcc = new WebChromeClient();
-		//wcc.getVideoLoadingProgressView();
-		//desc.setWebChromeClient(wcc);
+		WebChromeClient wcc = new WebChromeClient();
+		wcc.getVideoLoadingProgressView();
+		desc.setWebChromeClient(wcc);
 
 		// Enable the vertical fading edge (by default it is disabled)
 		ScrollView sv = (ScrollView) view.findViewById(R.id.sv);
