@@ -36,7 +36,7 @@ public class SplashActivity extends SherlockActivity {
 
 		setContentView(R.layout.splash);
 
-		fileName = "TDRSSFeed.td";
+		fileName = "HabariHubRSSFeed.td";
 
 		File feedFile = getBaseContext().getFileStreamPath(fileName);
 
@@ -137,6 +137,7 @@ public class SplashActivity extends SherlockActivity {
 			startListActivity(feed);
 		}
 		
+		@SuppressWarnings("unused")
 		protected void cancelTask(){
 			
 			cancel(true);

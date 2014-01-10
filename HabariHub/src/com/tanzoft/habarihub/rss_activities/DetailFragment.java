@@ -67,7 +67,7 @@ public class DetailFragment extends SherlockFragment {
 		//ws.setLoadsImagesAutomatically(false);
 		
 		ws.setJavaScriptEnabled(true);
-		ws.setUserAgentString("Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; Nexus One Build/FRG83) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
+		//ws.setUserAgentString("Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; Nexus One Build/FRG83) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
 
 		// Set the views
 		title.setText(fFeed.getItem(fPos).getTitle());

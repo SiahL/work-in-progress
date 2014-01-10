@@ -11,8 +11,6 @@ public class RSSItem implements Serializable {
 	private String _image = null;
 	private String _author = null;
 	private String _link = null;
-	private String _youtubeId = null;
-
 	void setTitle(String title) {
 		_title = title;
 	}
