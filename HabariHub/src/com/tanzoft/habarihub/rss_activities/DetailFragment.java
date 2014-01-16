@@ -1,18 +1,30 @@
 package com.tanzoft.habarihub.rss_activities;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.Html.ImageGetter;
+import android.text.Spanned;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebSettings.LayoutAlgorithm;
-import android.webkit.WebSettings.PluginState;
-import android.webkit.WebView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragment;
@@ -27,6 +39,7 @@ import com.tanzoft.habarihub.parser.RSSFeed;
 public class DetailFragment extends SherlockFragment {
 	private int fPos;
 	RSSFeed fFeed;
+	TextView title, desc;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -36,7 +49,6 @@ public class DetailFragment extends SherlockFragment {
 		fPos = getArguments().getInt("pos");
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -46,33 +58,34 @@ public class DetailFragment extends SherlockFragment {
 		// Should call this to trigger Menu
 		setHasOptionsMenu(true);
 
-		
 		// Initializer views
-		TextView title = (TextView) view.findViewById(R.id.title);
-		WebView desc = (WebView) view.findViewById(R.id.desc);
-		WebChromeClient wcc = new WebChromeClient();
-		wcc.getVideoLoadingProgressView();
-		desc.setWebChromeClient(wcc);
+		title = (TextView) view.findViewById(R.id.title);
+		desc = (TextView) view.findViewById(R.id.desc);
 
-		// Enable the vertical fading edge (by default it is disabled)
-		ScrollView sv = (ScrollView) view.findViewById(R.id.sv);
-		sv.setVerticalFadingEdgeEnabled(true);
-
-		// Set WebView properties
-		WebSettings ws = desc.getSettings();
-		ws.setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
-		// ws.setLayoutAlgorithm(LayoutAlgorithm.NARROW_COLUMNS);
-		ws.setLightTouchEnabled(true);
-		ws.setPluginState(PluginState.ON);
-		//ws.setLoadsImagesAutomatically(false);
-		
-		ws.setJavaScriptEnabled(true);
-		//ws.setUserAgentString("Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; Nexus One Build/FRG83) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
-
-		// Set the views
+		// set Title
 		title.setText(fFeed.getItem(fPos).getTitle());
-		desc.loadDataWithBaseURL("http://www.tanzoft.com/", fFeed.getItem(fPos)
-				.getDescription(), "text/html", "utf-8", null);
+		
+		String htmlString = fFeed.getItem(fPos).getDescription();
+		
+		//Opening tag
+		Pattern pn = Pattern.compile("<iframe src");
+		Matcher m = pn.matcher(htmlString);
+		while (m.find())
+		    htmlString= m.replaceAll("<a href");
+
+		//Closing tag    
+		pn = Pattern.compile("frameborder=.*</iframe>");
+		m = pn.matcher(htmlString);
+		while (m.find())
+		    htmlString= m.replaceAll(">CLICK TO WATCH</a>");
+
+		// handle images in description
+		URLImageParser p = new URLImageParser(desc, this.getActivity());
+		Spanned htmlSpan = Html.fromHtml(htmlString,
+				p, null);
+
+		// set description
+		desc.setText(htmlSpan);
 
 		return view;
 	}
@@ -100,5 +113,117 @@ public class DetailFragment extends SherlockFragment {
 		mShareActionProvider.setShareIntent(shareIntent);
 
 		super.onCreateOptionsMenu(menu, inflater);
+	}
+
+	@SuppressWarnings("deprecation")
+	public class URLDrawable extends BitmapDrawable {
+		// the drawable that you need to set, you could set the initial drawing
+		// with the loading image if you need to
+		protected Drawable drawable;
+
+		@Override
+		public void draw(Canvas canvas) {
+			// override the draw to facilitate refresh function later
+			if (drawable != null) {
+				drawable.draw(canvas);
+			}
+		}
+	}
+
+	public class URLImageParser implements ImageGetter {
+		Context c;
+		TextView container;
+
+		/***
+		 * Construct the URLImageParser which will execute AsyncTask and refresh
+		 * the container
+		 * 
+		 * @param t
+		 * @param c
+		 */
+		public URLImageParser(TextView t, Context c) {
+			this.c = c;
+			this.container = t;
+		}
+
+		public Drawable getDrawable(String source) {
+			URLDrawable urlDrawable = new URLDrawable();
+
+			// get the actual source
+			ImageGetterAsyncTask asyncTask = new ImageGetterAsyncTask(
+					urlDrawable);
+
+			asyncTask.execute(source);
+
+			// return reference to URLDrawable where I will change with actual
+			// image from
+			// the src tag
+			return urlDrawable;
+		}
+
+		public class ImageGetterAsyncTask extends
+				AsyncTask<String, Void, Drawable> {
+			URLDrawable urlDrawable;
+
+			public ImageGetterAsyncTask(URLDrawable d) {
+				this.urlDrawable = d;
+			}
+
+			@Override
+			protected Drawable doInBackground(String... params) {
+				String source = params[0];
+				return fetchDrawable(source);
+			}
+
+			@Override
+			protected void onPostExecute(Drawable result) {
+				// set the correct bound according to the result from HTTP call
+				Log.d("height", "" + result.getIntrinsicHeight());
+				Log.d("width", "" + result.getIntrinsicWidth());
+				urlDrawable.setBounds(0, 0, 0 + result.getIntrinsicWidth(),
+						0 + result.getIntrinsicHeight());
+
+				// change the reference of the current drawable to the result
+				// from the HTTP call
+				urlDrawable.drawable = result;
+
+				// redraw the image by invalidating the container
+				URLImageParser.this.container.invalidate();
+
+				// For ICS
+				URLImageParser.this.container
+						.setHeight((URLImageParser.this.container.getHeight() + result
+								.getIntrinsicHeight()));
+
+				// Pre ICS
+				URLImageParser.this.container.setEllipsize(null);
+			}
+
+			/***
+			 * Get the Drawable from URL
+			 * 
+			 * @param urlString
+			 * @return
+			 */
+			public Drawable fetchDrawable(String urlString) {
+				try {
+					InputStream is = fetch(urlString);
+					Drawable drawable = Drawable.createFromStream(is, "src");
+					drawable.setBounds(0, 0, 0 + drawable.getIntrinsicWidth(),
+							0 + drawable.getIntrinsicHeight());
+					return drawable;
+				} catch (Exception e) {
+					return null;
+				}
+			}
+
+			private InputStream fetch(String urlString)
+					throws MalformedURLException, IOException {
+				DefaultHttpClient httpClient = new DefaultHttpClient();
+				HttpGet request = new HttpGet(urlString);
+				HttpResponse response = httpClient.execute(request);
+				return response.getEntity().getContent();
+			}
+		}
 	}
 }
