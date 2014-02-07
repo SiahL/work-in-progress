@@ -1,105 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tanzoft.habarihub"
-    android:versionCode="5"
-    android:versionName="1.1.1" >
+    android:versionCode="1"
+    android:versionName="1.0" >
 
-    <uses-sdk
+ <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="19" />
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        android:targetSdkVersion="19" 
+        android:maxSdkVersion="19"/>
 
     <application
         android:allowBackup="true"
-        android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:name="HabariHubApplication"
+        android:theme="@style/HabariHubActionBarTheme" >
         <activity
-            android:name="com.tanzoft.habarihub.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" >
+            android:name="com.tanzoft.habarihub.HabariHubMainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.tanzoft.habarihub.AboutActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.RadioActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.VideosActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor"
-            android:theme="@style/AppTheme.TranslucentActionBar" />
-        <activity
-            android:name="com.tanzoft.habarihub.MagazetiActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Light.TranslucentActionBar" />
-        <activity
-            android:name="com.tanzoft.habarihub.BlogsActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor"
-            android:theme="@style/AppTheme.TranslucentActionBar" />
-        <activity
-            android:name="com.tanzoft.habarihub.MediaActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.Developers"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.tanzoft.habarihub.CreditsActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.rss_activities.SplashActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.rss_activities.ListActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.rss_activities.DetailActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.rss_activities.DetailFragment"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.ui.CardsUI"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.SettingsActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.youtube.YoutubeActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.youtube.YoutubeListView"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.tanzoft.habarihub.youtube.YoutubeSplashActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" />
     </application>
 
 </manifest>
