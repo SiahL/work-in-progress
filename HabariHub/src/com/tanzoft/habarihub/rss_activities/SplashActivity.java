@@ -135,9 +135,10 @@ public class SplashActivity extends SherlockActivity {
 			super.onPostExecute(result);
 
 			startListActivity(feed);
+			cancelTask();
 		}
 		
-		@SuppressWarnings("unused")
+		
 		protected void cancelTask(){
 			
 			cancel(true);

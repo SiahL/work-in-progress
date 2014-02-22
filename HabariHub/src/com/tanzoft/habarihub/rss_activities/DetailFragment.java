@@ -13,7 +13,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -82,7 +81,7 @@ public class DetailFragment extends SherlockFragment {
 		pn = Pattern.compile("frameborder=.*</iframe>");
 		m = pn.matcher(htmlString);
 		while (m.find())
-		    htmlString= m.replaceAll(">CLICK TO WATCH</a>");
+		  htmlString= m.replaceAll(">CLICK TO WATCH</a>");
 
 		// handle images in description
 		URLImageParser p = new URLImageParser(desc, this.getActivity());
@@ -195,8 +194,8 @@ public class DetailFragment extends SherlockFragment {
 					newHeight = (newWidth * newHeight)/result.getIntrinsicWidth();
 				}
 				
-				urlDrawable.setBounds(0, 0, 0 + result.getIntrinsicWidth(),
-						0 + result.getIntrinsicHeight());
+				urlDrawable.setBounds(0, 0, newWidth,
+						newHeight);
 
 				// change the reference of the current drawable to the result
 				// from the HTTP call
@@ -207,8 +206,7 @@ public class DetailFragment extends SherlockFragment {
 
 				// For ICS+
 				URLImageParser.this.container
-						.setHeight((URLImageParser.this.container.getHeight() + result
-								.getIntrinsicHeight()));
+						.setHeight((URLImageParser.this.container.getHeight() + newHeight));
 
 				// Pre-ICS
 				URLImageParser.this.container.setEllipsize(null);
@@ -235,7 +233,7 @@ public class DetailFragment extends SherlockFragment {
 					
 					//draw object from 0, 0 to drawable width to the right, and height down
 					drawable.setBounds(0, 0, 0 + newWidth,
-							0 + newWidth);
+							0 + newHeight);
 					
 					
 					return drawable;
@@ -244,13 +242,7 @@ public class DetailFragment extends SherlockFragment {
 					return null;
 				}
 			}
-			
-			public Drawable resizeDrawable(Drawable image){
-				Bitmap b = ((BitmapDrawable)image).getBitmap();
-			    Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 50, 50, false);
-			    image =new BitmapDrawable(getResources(), bitmapResized);
-			    return image;
-			}
+
 
 			private InputStream fetch(String urlString)
 					throws MalformedURLException, IOException {
