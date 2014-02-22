@@ -91,7 +91,7 @@ public class BlogsActivity extends SherlockListActivity {
 			break;
 
 		case 2:
-			blogSite = "http://www.millardayo.com/feed/";
+			blogSite = "http://millardayo.com/feed/";
 			loadBlog = new Intent(BlogsActivity.this,
 					com.tanzoft.habarihub.rss_activities.SplashActivity.class);
 			loadBlog.putExtra("site", blogSite);

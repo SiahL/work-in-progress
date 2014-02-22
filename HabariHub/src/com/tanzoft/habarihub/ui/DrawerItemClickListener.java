@@ -1,11 +1,8 @@
 package com.tanzoft.habarihub.ui;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
-import com.tanzoft.habarihub.MainActivity;
 
 public class DrawerItemClickListener implements ListView.OnItemClickListener {
 

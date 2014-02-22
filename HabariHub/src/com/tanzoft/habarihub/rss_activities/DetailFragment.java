@@ -13,6 +13,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -21,6 +22,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.Html.ImageGetter;
 import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +63,9 @@ public class DetailFragment extends SherlockFragment {
 		// Initializer views
 		title = (TextView) view.findViewById(R.id.title);
 		desc = (TextView) view.findViewById(R.id.desc);
+		
+		//make links clickable
+		desc.setMovementMethod(LinkMovementMethod.getInstance());
 
 		// set Title
 		title.setText(fFeed.getItem(fPos).getTitle());
@@ -114,6 +119,7 @@ public class DetailFragment extends SherlockFragment {
 
 		super.onCreateOptionsMenu(menu, inflater);
 	}
+
 
 	@SuppressWarnings("deprecation")
 	public class URLDrawable extends BitmapDrawable {
@@ -180,6 +186,15 @@ public class DetailFragment extends SherlockFragment {
 				// set the correct bound according to the result from HTTP call
 				Log.d("height", "" + result.getIntrinsicHeight());
 				Log.d("width", "" + result.getIntrinsicWidth());
+				
+				int newWidth = result.getIntrinsicWidth();
+				int newHeight = result.getIntrinsicHeight();
+				
+				if(container.getWidth() > newWidth){
+					newWidth = container.getWidth();
+					newHeight = (newWidth * newHeight)/result.getIntrinsicWidth();
+				}
+				
 				urlDrawable.setBounds(0, 0, 0 + result.getIntrinsicWidth(),
 						0 + result.getIntrinsicHeight());
 
@@ -190,12 +205,12 @@ public class DetailFragment extends SherlockFragment {
 				// redraw the image by invalidating the container
 				URLImageParser.this.container.invalidate();
 
-				// For ICS
+				// For ICS+
 				URLImageParser.this.container
 						.setHeight((URLImageParser.this.container.getHeight() + result
 								.getIntrinsicHeight()));
 
-				// Pre ICS
+				// Pre-ICS
 				URLImageParser.this.container.setEllipsize(null);
 			}
 
@@ -206,15 +221,35 @@ public class DetailFragment extends SherlockFragment {
 			 * @return
 			 */
 			public Drawable fetchDrawable(String urlString) {
+				
 				try {
 					InputStream is = fetch(urlString);
 					Drawable drawable = Drawable.createFromStream(is, "src");
-					drawable.setBounds(0, 0, 0 + drawable.getIntrinsicWidth(),
-							0 + drawable.getIntrinsicHeight());
+					
+					int newWidth = drawable.getIntrinsicWidth();
+					int newHeight = drawable.getIntrinsicHeight();
+					if(container.getWidth() > newWidth){
+						newWidth = container.getWidth();
+						newHeight = (newWidth * newHeight)/drawable.getIntrinsicWidth();
+					}
+					
+					//draw object from 0, 0 to drawable width to the right, and height down
+					drawable.setBounds(0, 0, 0 + newWidth,
+							0 + newWidth);
+					
+					
 					return drawable;
+					
 				} catch (Exception e) {
 					return null;
 				}
+			}
+			
+			public Drawable resizeDrawable(Drawable image){
+				Bitmap b = ((BitmapDrawable)image).getBitmap();
+			    Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 50, 50, false);
+			    image =new BitmapDrawable(getResources(), bitmapResized);
+			    return image;
 			}
 
 			private InputStream fetch(String urlString)
