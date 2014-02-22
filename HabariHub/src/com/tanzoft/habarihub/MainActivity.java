@@ -4,7 +4,6 @@ import java.io.File;
 
 import org.apache.http.protocol.HTTP;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +15,7 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.fima.cardsui.views.CardUI;
+import com.tanzoft.habarihub.R;
 import com.tanzoft.habarihub.ui.MyPlayCard;
 
 public class MainActivity extends SherlockActivity {
@@ -77,7 +77,7 @@ public class MainActivity extends SherlockActivity {
 			@Override
 			public void onClick(View v) {
 				Intent radio = new Intent(MainActivity.this,
-						com.tanzoft.habarihub.RadioActivity.class);
+						com.tanzoft.habarihub.mediaplayer.MediaActivity.class);
 				startActivity(radio);
 
 			}

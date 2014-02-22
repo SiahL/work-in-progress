@@ -51,7 +51,7 @@
             android:screenOrientation="nosensor"
             android:theme="@style/AppTheme.TranslucentActionBar" />
         <activity
-            android:name="com.tanzoft.habarihub.MediaActivity"
+            android:name="com.tanzoft.habarihub.mediaplayer.MediaActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="nosensor" />
         <activity
@@ -100,6 +100,15 @@
             android:name="com.tanzoft.habarihub.youtube.YoutubeSplashActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="nosensor" />
+
+        <service android:name="com.tanzoft.habarihub.mediaplayer.MediaPlayerService" />
+        
+        <receiver android:name="com.tanzoft.habarihub.mediaplayer.CallManager" >
+        <intent-filter>
+            <action android:name="android.intent.action.PHONE_STATE" >
+            </action>
+        </intent-filter>
+    </receiver>
     </application>
 
 </manifest>

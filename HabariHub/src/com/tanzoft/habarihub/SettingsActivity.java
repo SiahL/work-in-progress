@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.tanzoft.habarihub.R;
 
 public class SettingsActivity extends SherlockActivity implements
 		OnClickListener {

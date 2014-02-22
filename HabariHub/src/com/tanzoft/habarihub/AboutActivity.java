@@ -13,6 +13,7 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.fima.cardsui.views.CardUI;
+import com.tanzoft.habarihub.R;
 import com.tanzoft.habarihub.ui.MyPlayCard;
 
 public class AboutActivity extends SherlockActivity {

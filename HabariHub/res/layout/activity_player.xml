@@ -1,74 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="#000">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/golden"
+    android:orientation="vertical" >
 
-    <TextView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:text="@string/radio_title" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/infoStatus"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:textColor="@android:color/white"
-            android:text="@string/radio_greeting" />
-    </RelativeLayout>
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/bufferStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+   
 
     <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.94" >
+        android:id="@+id/playPauseButtonArea"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-        <ImageButton
-            android:contentDescription="Pause Radio"
-            android:id="@+id/pausebutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:background="#000"
-            android:src="@drawable/radiopauseicon" />
+        <ToggleButton
+            android:id="@+id/playPauseButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/start_pause_button_selector"
+            android:textOn=""
+            android:textOff=""/>
 
-        <ImageButton
-            android:contentDescription="Play Radio"
-            android:id="@+id/playbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/pausebutton"
-            android:layout_alignParentLeft="true"
-            android:background="#000"
-            android:paddingLeft="10dp"
-            android:src="@drawable/radioplayicon" />
-
-        <ImageButton
-            android:id="@+id/stopbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/pausebutton"
-            android:background="#000"
-            android:paddingRight="10dp"
-            android:src="@drawable/radiostopicon" />
     </RelativeLayout>
+    
+     <Spinner
+        android:id="@+id/stationPicker"
+        android:layout_below="@+id/playPauseButtonArea"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:prompt="@string/station_picker_prompt" />
 
-</LinearLayout>
+</RelativeLayout>

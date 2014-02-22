@@ -20,6 +20,7 @@ import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
+import com.tanzoft.habarihub.R;
 
 public class VideosActivity extends SherlockListActivity {
 

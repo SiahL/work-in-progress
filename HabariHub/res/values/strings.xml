@@ -17,10 +17,13 @@
     <string name="menu_report">Report Problem</string>
     <string name="menu_rate">Rate this app</string>
     <string name="menu_update">Check for Update</string>
+    <string name="menuClose">Close</string>
+    <string name="menuAbout">About</string>
     <string name="settings_theme">Dark theme</string>
     <string name="about_title">Habari Hub</string>
     <string name="radio_title">H/H Radio</string>
     <string name="radio_greeting">Karibu</string>
+    <string name="station_picker_prompt">Select Radio</string>
     <string name="credits">LIBRARIES\nActionBarSherlock\nFading Action Bar\nCards UI\n\nCODE\nMedia Player - Roger Cotrina</string>
     <string name="about_github">Please contact developer(s) for source code</string>
     <string name="start_disclaimer">By selecting start using habarihub you agree to terms and conditions,and permissions requested by this app.</string>
