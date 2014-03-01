@@ -12,13 +12,13 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp" >
 
-        <TextView
+        <com.tanzoft.habarihub.extendedviews.HabariHubTextView
             android:id="@+id/title"
             style="@style/CardTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="title"
+            android:text="@string/card_title"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -35,7 +35,7 @@
         android:gravity="center_vertical"
         android:padding="4dp" >
 
-        <TextView
+        <com.tanzoft.habarihub.extendedviews.HabariHubTextView
             android:id="@+id/description"
             style="@style/CardText"
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
             android:layout_marginLeft="8dp"
             android:ellipsize="end"
             android:maxLines="4"
-            android:text="View Story" />
+            android:text="@string/view_story" />
     </LinearLayout>
 
 </LinearLayout>
