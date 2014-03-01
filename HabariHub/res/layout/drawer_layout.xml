@@ -2,15 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    >
+    android:background="@drawable/list_selector_support"
+     >
 
     <com.tanzoft.habarihub.extendedviews.HabariHubTextView
         android:id="@+id/drawerOption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:layout_marginRight="5dp"
-        android:textSize="25sp"
-        />
-<!--  -->
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:textSize="25sp" />
+    <!--  -->
+
 </RelativeLayout>

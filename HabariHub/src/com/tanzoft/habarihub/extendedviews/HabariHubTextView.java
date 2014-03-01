@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 public class HabariHubTextView extends TextView {
 
+	/*
+	 * Extending the text view class to provide ubuntu font*/
 	public HabariHubTextView(Context context, AttributeSet attrs, int defStyle) {
 
 		super(context, attrs, defStyle);

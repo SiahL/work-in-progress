@@ -2,15 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:background="@drawable/list_selector" >
+    android:background="@drawable/news_item_selector"
+     >
 
     <com.tanzoft.habarihub.extendedviews.HabariHubTextView
-        android:id="@+id/drawerOption"
+        android:id="@+id/source_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:gravity="center_vertical"
         android:paddingLeft="20dp"
+        android:textColor="@android:color/white"
         android:textSize="25sp" />
+    <!--  -->
 
 </RelativeLayout>

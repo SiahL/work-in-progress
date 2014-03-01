@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.tanzoft.habarihub.adapters.HabariHubDrawerAdapter;
-import com.tanzoft.habarihub.fragments.FragmentView;
-import com.tanzoft.habarihub.fragments.HabariHubFragmentHandler;
+import org.apache.http.protocol.HTTP;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentManager;
@@ -18,10 +18,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
+
+import com.tanzoft.habarihub.adapters.HabariHubDrawerAdapter;
+import com.tanzoft.habarihub.fragments.AboutUsFragment;
+import com.tanzoft.habarihub.fragments.BlogsFragment;
+import com.tanzoft.habarihub.fragments.FragmentView;
+import com.tanzoft.habarihub.fragments.HabariHubFragmentHandler;
+import com.tanzoft.habarihub.fragments.NewsPapersFragment;
 
 public class HabariHubMainActivity extends ActionBarActivity {
 
@@ -37,11 +43,7 @@ public class HabariHubMainActivity extends ActionBarActivity {
 	String mTitle=" ";//title for the action bar
 	int mPosition=-1;//an integer to check the row position of list views;position starts at zero
 
-
-
-
-	//Array of integers pointing to the icons stored in /res/drawable
-
+	HabariHubFragmentHandler fragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -113,17 +115,29 @@ public class HabariHubMainActivity extends ActionBarActivity {
 					long arg3) {
 
 				//Closing the Drawer
-				mDrawerLayout.closeDrawer(mDrawer);
+
+				mDrawerLayout.postDelayed(new Runnable() {
+
+					@Override
+					public void run() {
+
+						mDrawerLayout.closeDrawer(mDrawer);
+
+					}
+				},50);
 
 				switch (pos){
 
 				case 0:
 
-					showFragment(pos);
+					fragment = new BlogsFragment();
+					runFragment(fragment);
 					break;
 
 				case 1:
-					showFragment(pos);
+
+					fragment = new NewsPapersFragment();
+					runFragment(fragment);
 					break;
 
 				case 2:
@@ -135,7 +149,9 @@ public class HabariHubMainActivity extends ActionBarActivity {
 					break;
 
 				case 4:
-					showFragment(pos);					
+					fragment = new AboutUsFragment();
+					runFragment(fragment);
+					//showFragment(pos);					
 					break;
 				}
 
@@ -149,11 +165,39 @@ public class HabariHubMainActivity extends ActionBarActivity {
 
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+	}
 
 
 
 
+	@Override
+	protected void onStop() {
+		super.onStop();
+	}
 
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+	}
+
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+	}
+
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
+
+
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
 	}
 
 
@@ -171,6 +215,56 @@ public class HabariHubMainActivity extends ActionBarActivity {
 			return true;
 		}
 
+
+		switch(item.getItemId()){
+
+		case R.id.rate:
+
+			try {
+				startActivity(new Intent(Intent.ACTION_VIEW,
+						Uri.parse("market://details?id="
+								+ "com.tanzoft.habarihub")));
+			} catch (android.content.ActivityNotFoundException anfe) {
+				startActivity(new Intent(
+						Intent.ACTION_VIEW,
+						Uri.parse("http://play.google.com/store/apps/details?id="
+								+ "com.tanzoft.habarihub")));
+			}
+
+			return true;
+
+		case R.id.settings:
+			//Intent settings = new Intent(this,com.tanzoft.habarihub.SettingsActivity.class);
+			//startActivity(settings);
+			return true;
+
+		case R.id.report:
+			Intent emailIntent = new Intent(Intent.ACTION_SEND);
+			/*
+			 * The intent does not have a URI, so declare the "text/plain" MIME
+			 * type, emailIntent.setType("text/plain");
+			 */
+			emailIntent.setType(HTTP.PLAIN_TEXT_TYPE);
+			emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {
+					"damas@tanzoft.com", "cmeo226@yahoo.com",
+					"pkinasha@gmail.com", "igotti47@gmail.com" }); // recipients
+			emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Habari Hub Error");
+			startActivity(Intent.createChooser(emailIntent,
+					"Choose Email Client"));
+			return true;
+
+		case R.id.share:
+			Intent share = new Intent("android.intent.action.SEND");
+			share.setType("text/plain");
+			share.putExtra("android.intent.extra.TEXT",
+					"https://play.google.com/store/apps/details?id=com.tanzoft.habarihub");
+			share.putExtra("android.intent.extra.SUBJECT",
+					"Try Habari Hub Android app!");
+			startActivity(Intent.createChooser(share, "Share Habari Hub!!"));
+			return true;
+
+		}
+
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -178,11 +272,11 @@ public class HabariHubMainActivity extends ActionBarActivity {
 
 	//Highlight the selected option 0 to 4
 	protected void highlightSelectedOption() {
-		// TODO Auto-generated method stub
 		int selectedItem = mDrawerList.getCheckedItemPosition();
-		if (selectedItem > 4){
+		if (selectedItem > 5){
 
 			mDrawerList.setItemChecked(mPosition, true);
+
 
 		}else{
 
@@ -198,10 +292,13 @@ public class HabariHubMainActivity extends ActionBarActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main_menu, menu);
 
 		return true;
 	}
+
+
+
 
 	public void showFragment(int position){
 
@@ -237,38 +334,27 @@ public class HabariHubMainActivity extends ActionBarActivity {
 	}
 
 
-	/*private  void executeFragment(final FragmentHandler fragment) {
+	private  void runFragment(HabariHubFragmentHandler fragment) {
 
-	//DrawerLayout.closeDrawer(mDrawer);
-	//ew Handler().postDelayed(new Runnable() {
+		// Creating a Bundle object
+		Bundle data = new Bundle();
 
-			//verride
-		//ublic void run() {
-				// TODO Auto-generated method stub
+		// Setting the position to the fragment
 
-				// Creating a Bundle object
-				Bundle data = new Bundle();
+		fragment.setArguments(data);
 
-				// Setting the position to the fragment
+		// Getting reference to the FragmentManager
+		FragmentManager fragmentManager  = getSupportFragmentManager();
 
-				fragment.setArguments(data);
+		// Creating a fragment transaction
+		FragmentTransaction ft = fragmentManager.beginTransaction();
 
-				// Getting reference to the FragmentManager
-				FragmentManager fragmentManager  = getSupportFragmentManager();
+		// Adding a fragment to the fragment transaction
+		ft.replace(R.id.content_frame,fragment);
 
-				// Creating a fragment transaction
-				FragmentTransaction ft = fragmentManager.beginTransaction();
-
-				// Adding a fragment to the fragment transaction
-				ft.replace(R.id.content_frame,fragment);
-
-				// Committing the transaction
-				ft.commit();
-
-	//}
-	//, 200);
-
-	}*/
+		// Committing the transaction
+		ft.commit();
+	}
 
 
 
