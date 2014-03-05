@@ -18,8 +18,8 @@ import com.tanzoft.habarihub.datamodels.NewsSource;
 
 public class BlogsFragment extends HabariHubFragmentHandler {
 
-	NewsAdapter adapter;
 	ArrayList<NewsSource> newsSource;
+	private ListView listView;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,10 +31,8 @@ public class BlogsFragment extends HabariHubFragmentHandler {
 		Log.i("BlogsFra on create view ", " "+newsSource.size());
 
 		View view = inflater.inflate(R.layout.source_list, container, false);
-		adapter = new NewsAdapter(getActivity(), R.layout.source_item,newsSource);
 
-		ListView listView=(ListView) view.findViewById(R.id.source_list);
-		listView.setAdapter(adapter);
+		 listView=(ListView) view.findViewById(R.id.source_list);
 
 		return view;
 	}
@@ -93,6 +91,23 @@ public class BlogsFragment extends HabariHubFragmentHandler {
 	@Override
 	public void onResume() {
 		super.onResume();
+		new Runnable() {
+
+			@Override
+			public void run() {
+
+				newsSource = new ArrayList<NewsSource>();
+				NewsSourceDatabaseOpenHelper dbHelper = new NewsSourceDatabaseOpenHelper(getActivity());
+				newsSource=dbHelper.getAllBlogs();
+
+			}
+		}.run();
+		adapter = new NewsAdapter(getActivity(), R.layout.source_item,newsSource);
+		listView.setAdapter(adapter);
+		adapter.notifyDataSetChanged();
+
+
+
 	}
 
 	@Override

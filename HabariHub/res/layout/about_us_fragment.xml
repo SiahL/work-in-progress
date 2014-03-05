@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="7dp"
+    android:background="@color/background_holo_light"
     android:orientation="vertical"
     tools:context=".AboutActivity" >
 
@@ -12,17 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:padding="10dp"
-        android:textSize="20sp"
         android:text="@string/about_text"
-        
-        />
+        android:textSize="20sp" />
 
-     
     <com.fima.cardsui.views.CardUI
         android:id="@+id/about_cards"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-   
 
 </LinearLayout>

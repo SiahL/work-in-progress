@@ -77,7 +77,7 @@ public class NewsSourceDatabaseOpenHelper extends SQLiteOpenHelper {
 	public ArrayList<NewsSource> getAllBlogs() {
 		ArrayList<NewsSource> itemList = new ArrayList<NewsSource>();
 		// Select All Query
-		String selectQuery = "SELECT * FROM "+NewsSourceDatabase.DATABASE_TABLE_BLOGS+" ORDER BY "+NewsSourceDatabase.COLUMN_ID;
+		String selectQuery = "SELECT * FROM "+NewsSourceDatabase.DATABASE_TABLE_BLOGS+" ORDER BY "+NewsSourceDatabase.COLUMN_ID+" DESC ";
 		SQLiteDatabase db = this.getWritableDatabase();
 		Cursor cursor = db.rawQuery(selectQuery, null);
 		// looping through all rows and adding to list
@@ -111,7 +111,7 @@ public class NewsSourceDatabaseOpenHelper extends SQLiteOpenHelper {
 			
 			
 			// Select All Query
-			String selectQuery = "SELECT * FROM "+NewsSourceDatabase.DATABASE_TABLE_NEWSPAPERS+" ORDER BY "+NewsSourceDatabase.COLUMN_ID;
+			String selectQuery = "SELECT * FROM "+NewsSourceDatabase.DATABASE_TABLE_NEWSPAPERS+" ORDER BY "+NewsSourceDatabase.COLUMN_ID+" DESC ";
 			SQLiteDatabase db = this.getWritableDatabase();
 			Cursor cursor = db.rawQuery(selectQuery, null);
 			// looping through all rows and adding to list

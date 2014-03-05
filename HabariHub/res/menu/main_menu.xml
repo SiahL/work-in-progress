@@ -10,6 +10,12 @@
         HabariHub:showAsAction="ifRoom"
         android:icon="@drawable/menu_error"
         android:title="@string/menu_report"/>
+    
+     <item
+        android:id="@+id/add"
+        HabariHub:showAsAction="always"
+        android:icon="@drawable/ic_action_new"
+        android:title="@string/menu_report"/>
     <item
         android:id="@+id/rate"
         android:icon="@drawable/rating"

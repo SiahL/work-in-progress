@@ -11,8 +11,13 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -20,19 +25,13 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
 import android.widget.ToggleButton;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.tanzoft.habarihub.AboutActivity;
 import com.tanzoft.habarihub.R;
 import com.tanzoft.habarihub.mediaplayer.MediaPlayerService.MediaPlayerBinder;
 
 /**
  *
  */
-public class MediaActivity extends SherlockActivity implements
+public class MediaActivity extends ActionBarActivity implements
 		IMediaPlayerServiceClient {
 	private StatefulMediaPlayer mMediaPlayer;
 	private StreamStation mSelectedStream = RadioList.DEFAULT_STREAM_STATION;
@@ -58,7 +57,7 @@ public class MediaActivity extends SherlockActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getSupportMenuInflater();
+		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.radio_activity_menu, menu);
 		return true;
 	}
@@ -83,9 +82,9 @@ public class MediaActivity extends SherlockActivity implements
 	 * Launches an activity to show the about
 	 */
 	private void showAboutActivity() {
-		Intent intent = new Intent(Intent.ACTION_VIEW);
-		intent.setClassName(this, AboutActivity.class.getName());
-		startActivity(intent);
+		//Intent intent = new Intent(Intent.ACTION_VIEW);
+		//intent.setClassName(this, AboutActivity.class.getName());
+		//startActivity(intent);
 	}
 
 	/**
@@ -248,7 +247,7 @@ public class MediaActivity extends SherlockActivity implements
 
 		for (RunningServiceInfo service : manager
 				.getRunningServices(Integer.MAX_VALUE)) {
-			if ("com.anonplusradio.android.media.mediaplayer.MediaPlayerService"
+			if ("com.tanzoft.habarihub.mediaplayer.MediaPlayerService"
 					.equals(service.service.getClassName())) {
 				return true;
 			}

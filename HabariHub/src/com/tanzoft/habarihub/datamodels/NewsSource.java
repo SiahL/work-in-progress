@@ -12,9 +12,14 @@ public class NewsSource {
 	public NewsSource() {
 	}
 	
-	public NewsSource(String displayName,String url){
+	public NewsSource(String displayName,String url) throws Exception{
+		
+		if(displayName.equals("")||url.equals("")){
+			throw new Exception();
+		}else{
 		this.displayName=displayName;
 		this.url=url;
+		}
 	}
 	
 	public String getDisplayName() {

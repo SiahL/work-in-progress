@@ -33,7 +33,7 @@ public class HabariHubDrawerAdapter extends SimpleAdapter {
 		//referencing the text view that hold the option name
 		HabariHubTextView tv = (HabariHubTextView) v.findViewById(R.id.drawerOption);
 		//setting the text color to white
-		tv.setTextColor(context.getResources().getColor(R.color.drawer_text_color));
+		tv.setTextColor(context.getResources().getColor(android.R.color.black));
 
 		return v;
 	}

@@ -10,19 +10,20 @@
     <string name="menu_report">Report Problem</string>
     <string name="menu_rate">Rate this app</string>
     <string name="menu_update">Check for Update</string>
+    <string name="menuAbout">About Radio</string>
+    <string name="menuClose">Exit</string>
     <string name="about_text">Habari Hub is a lightweight app created to integrate major Tanzania news sources into one place. We are NOT affiliated to any source used in this app</string>
 
     <string-array name="drawerMenu">
         <item>Blogs and Sites</item>
         <item>Newspapers</item>
         <item>Radio</item>
-        <item>Videos</item>Visit my Google+ page.Visit my Google+ page.Visit my Google+ page.
-        <item>About Us</item>
+        <item>Videos</item>
+Visit my Google+ page.Visit my Google+ page.Visit my Google+ page.        <item>About Us</item>
     </string-array>
-   
+
     <string name="hello_world">Hello world!</string>
     <string name="card_title">title</string>
-    
     <string name="title_activity_main">MainActivity</string>
     <string name="loading">Loading please wait&#8230;</string>
     <string name="title">Title goes here!</string>
@@ -38,13 +39,10 @@
     <string name="menu_report">Report Problem</string>
     <string name="menu_rate">Rate this app</string>
     <string name="menu_update">Check for Update</string>
-    <string name="menuClose">Close</string>
-    <string name="menuAbout">About</string>
     <string name="settings_theme">Dark theme</string>
     <string name="about_title">Habari Hub</string>
     <string name="radio_title">H/H Radio</string>
     <string name="radio_greeting">Karibu</string>
-    <string name="station_picker_prompt">Select Radio</string>
     <string name="credits">LIBRARIES\nActionBarSherlock\nFading Action Bar\nCards UI\n\nCODE\nMedia Player - Roger Cotrina</string>
     <string name="about_github">Please contact developer(s) for source code</string>
     <string name="start_disclaimer">By selecting start using habarihub you agree to terms and conditions,and permissions requested by this app.</string>
@@ -52,7 +50,13 @@
     <string name="about_text">Habari Hub is a lightweight app created to integrate major Tanzania news sources into one place. We are NOT affiliated to any source used in this app</string>
     <string name="main_test">Thank you for being part of this app, as of now this app is in early development stages. Timeline for this app is as follows:\n1st June 2013 \- Alpha Release\n1st July 2013 \- Beta Release\n1st August 2013 \- Final Release.\nAlmost everything right now is in webView but we are working hard to bring everything native. \nNB: Dates are subject to change at any given time.</string>
     <string name="view_story">View Story</string>
-	<string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
-	<string name="visit_google_plus">Add Me To Your Google+ Circles</string>
-</resources>
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+    <string name="visit_google_plus">Add Me To Your Google+ Circles</string>
+    <string name="dialogTitle">Add A News Source</string>
+    <string name="source_name">Source Name</string>
+    <string name="source_url">Source Address</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="station_picker_prompt">Choose a Radio Station</string>
 
+</resources>

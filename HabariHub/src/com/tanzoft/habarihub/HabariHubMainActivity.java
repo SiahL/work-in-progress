@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.http.protocol.HTTP;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -28,6 +31,8 @@ import com.tanzoft.habarihub.fragments.BlogsFragment;
 import com.tanzoft.habarihub.fragments.FragmentView;
 import com.tanzoft.habarihub.fragments.HabariHubFragmentHandler;
 import com.tanzoft.habarihub.fragments.NewsPapersFragment;
+import com.tanzoft.habarihub.fragments.SubscriptionDialog;
+import com.tanzoft.habarihub.mediaplayer.MediaActivity;
 
 public class HabariHubMainActivity extends ActionBarActivity {
 
@@ -141,7 +146,9 @@ public class HabariHubMainActivity extends ActionBarActivity {
 					break;
 
 				case 2:
-					showFragment(pos);
+					
+					Intent radio = new Intent(HabariHubMainActivity.this, MediaActivity.class);
+					startActivity(radio);
 					break;
 
 				case 3 :
@@ -164,6 +171,9 @@ public class HabariHubMainActivity extends ActionBarActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
+		
+		fragment = new BlogsFragment();
+		runFragment(fragment);
 
 	}
 
@@ -262,7 +272,15 @@ public class HabariHubMainActivity extends ActionBarActivity {
 					"Try Habari Hub Android app!");
 			startActivity(Intent.createChooser(share, "Share Habari Hub!!"));
 			return true;
-
+			
+		case R.id.add:
+			
+			SubscriptionDialog dialog = new SubscriptionDialog();
+			
+			dialog.show(getSupportFragmentManager(), "add dialog");
+			
+			
+		
 		}
 
 		return super.onOptionsItemSelected(item);

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:background="@drawable/list_selector_support"
+    android:background="@color/background_holo_light"
      >
 
     <com.tanzoft.habarihub.extendedviews.HabariHubTextView
@@ -10,9 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
+        android:textColor="@android:color/black"
         android:gravity="center_vertical"
         android:paddingLeft="20dp"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
     <!--  -->
 
 </RelativeLayout>

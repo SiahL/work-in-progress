@@ -9,7 +9,7 @@
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF" />
+        android:background="@color/background_holo_light" />
 
 
     <!-- The navigation drawer -->
@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:orientation="vertical"
-        android:background="@color/drawerBackground"
+        android:background="@color/background_holo_light"
          
        >
 
@@ -31,6 +31,7 @@
             android:choiceMode="singleChoice"
             android:dividerHeight="0.0dp"
             android:gravity="center_vertical" 
+            android:background="@color/background_holo_light"
             />
     </LinearLayout>
 

@@ -1,15 +1,14 @@
 package com.tanzoft.habarihub.fragments;
 
-import com.tanzoft.habarihub.HabariHubMainActivity;
-import com.tanzoft.habarihub.R;
-import com.tanzoft.habarihub.extendedviews.HabariHubTextView;
-import android.support.v7.app.ActionBarActivity;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.tanzoft.habarihub.HabariHubMainActivity;
+import com.tanzoft.habarihub.R;
+import com.tanzoft.habarihub.extendedviews.HabariHubTextView;
 
 public class CreditsFragment extends HabariHubFragmentHandler {
 

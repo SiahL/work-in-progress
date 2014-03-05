@@ -2,6 +2,7 @@ package com.tanzoft.habarihub.fragments;
 
 import com.tanzoft.habarihub.HabariHubMainActivity;
 import com.tanzoft.habarihub.R;
+import com.tanzoft.habarihub.adapters.NewsAdapter;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ public abstract class HabariHubFragmentHandler extends Fragment{
 	
 	public abstract View onCreateView(LayoutInflater inflater, ViewGroup container , Bundle savedInstanceState);
 	
+	protected  NewsAdapter adapter;
 	public static void startBackStackedFragment (HabariHubFragmentHandler fragment,HabariHubMainActivity activity){
 		
 		// Creating a Bundle object
